@@ -69,7 +69,9 @@ def load_map(folder_name: str) -> dict[str, Any]:
     return data
 
 
-def resolve_top_folder(relative_path: str) -> tuple[str, Path]:
+def resolve_top_folder(
+    relative_path: str, must_exist: bool = True
+) -> tuple[str, Path]:
     """Return (top_folder_name, absolute target path) for an Explore/... path."""
     rel = Path(relative_path)
     parts = rel.parts
@@ -81,7 +83,7 @@ def resolve_top_folder(relative_path: str) -> tuple[str, Path]:
         raise ValueError("Provide at least Explore/<FOLDER>, e.g. Explore/IT_EAI")
     top = parts[1]
     target = REPO_ROOT / rel
-    if not target.exists():
+    if must_exist and not target.exists():
         raise FileNotFoundError(f"Target path does not exist: {rel}")
     return top, target
 
@@ -124,8 +126,50 @@ def iter_files(target: Path):
     yield from sorted(p for p in target.rglob("*") if p.is_file())
 
 
-def run(path: str, dry_run: bool = False) -> dict[str, Any]:
-    top, target = resolve_top_folder(path)
+def process_file(
+    file_path: Path,
+    replacements: list[dict[str, str]],
+    exclude_globs: list[str],
+    dry_run: bool,
+    report: dict[str, Any],
+) -> None:
+    report["files_scanned"] += 1
+    if is_excluded(file_path, exclude_globs):
+        return
+    if not should_process(file_path):
+        try:
+            raw = file_path.read_bytes()
+            if b"\x00" in raw[:2048]:
+                return
+            text = raw.decode("utf-8")
+        except (UnicodeDecodeError, OSError):
+            return
+    else:
+        try:
+            text = file_path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            try:
+                text = file_path.read_text(encoding="latin-1")
+            except OSError:
+                return
+
+    new_text, hits = apply_replacements(text, replacements)
+    if not hits:
+        return
+
+    rel = file_path.relative_to(REPO_ROOT).as_posix()
+    report["files_changed"] += 1
+    report["changes"].append({"file": rel, "hits": hits})
+    if not dry_run:
+        file_path.write_text(new_text, encoding="utf-8")
+
+
+def run(
+    path: str,
+    dry_run: bool = False,
+    files_from: str | None = None,
+) -> dict[str, Any]:
+    top, target = resolve_top_folder(path, must_exist=not bool(files_from))
     kw_map = load_map(top)
     replacements = kw_map["replacements"]
     exclude_globs = list(kw_map.get("exclude_globs") or [])
@@ -140,37 +184,22 @@ def run(path: str, dry_run: bool = False) -> dict[str, Any]:
         "changes": [],
     }
 
-    for file_path in iter_files(target):
-        report["files_scanned"] += 1
-        if is_excluded(file_path, exclude_globs):
-            continue
-        if not should_process(file_path):
-            # Attempt text for unknown types; skip if binary
-            try:
-                raw = file_path.read_bytes()
-                if b"\x00" in raw[:2048]:
-                    continue
-                text = raw.decode("utf-8")
-            except (UnicodeDecodeError, OSError):
+    if files_from:
+        list_path = Path(files_from)
+        if not list_path.is_file():
+            raise FileNotFoundError(f"files list not found: {files_from}")
+        for line in list_path.read_text(encoding="utf-8").splitlines():
+            rel = line.strip()
+            if not rel or rel.startswith("#"):
                 continue
-        else:
-            try:
-                text = file_path.read_text(encoding="utf-8")
-            except UnicodeDecodeError:
-                try:
-                    text = file_path.read_text(encoding="latin-1")
-                except OSError:
-                    continue
+            file_path = REPO_ROOT / rel
+            if not file_path.is_file():
+                continue
+            process_file(file_path, replacements, exclude_globs, dry_run, report)
+        return report
 
-        new_text, hits = apply_replacements(text, replacements)
-        if not hits:
-            continue
-
-        rel = file_path.relative_to(REPO_ROOT).as_posix()
-        report["files_changed"] += 1
-        report["changes"].append({"file": rel, "hits": hits})
-        if not dry_run:
-            file_path.write_text(new_text, encoding="utf-8")
+    for file_path in iter_files(target):
+        process_file(file_path, replacements, exclude_globs, dry_run, report)
 
     return report
 
@@ -181,6 +210,10 @@ def main() -> int:
         "--path",
         required=True,
         help="Repo-relative path under Explore/, e.g. Explore/IT_EAI or Explore/IT_EAI/WD_Coupa",
+    )
+    parser.add_argument(
+        "--files-from",
+        help="Optional file listing repo-relative paths to process (change set)",
     )
     parser.add_argument(
         "--dry-run",
@@ -194,7 +227,7 @@ def main() -> int:
     args = parser.parse_args()
 
     try:
-        report = run(args.path, dry_run=args.dry_run)
+        report = run(args.path, dry_run=args.dry_run, files_from=args.files_from)
     except (FileNotFoundError, ValueError, RuntimeError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1
