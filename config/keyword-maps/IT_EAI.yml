@@ -1,0 +1,31 @@
+# Keyword replacements for ALL projects under Explore/IT_EAI/**
+# Applied when promoting Dev → Prod. Entries run top-to-bottom once per file.
+#
+# Naming: config/keyword-maps/<TOP_FOLDER>.yml maps to Explore/<TOP_FOLDER>/
+# Example: IT_EAI.yml → Explore/IT_EAI/** (WD_Coupa, and any other projects)
+
+scope: Explore/IT_EAI
+description: Dev-to-Prod keyword map for IT_EAI projects
+
+# Prefer specific tokens first. Avoid bare "dev" → "prod" unless you accept
+# substring risk inside unrelated words.
+replacements:
+  - find: "DEV"
+    replace: "PROD"
+  - find: "dev"
+    replace: "prod"
+	
+  # Add connection / agent / folder names used only in Dev below:
+  # - find: "IICS_DEV_CONN"
+  #   replace: "IICS_PROD_CONN"
+
+exclude_globs:
+  - "**/*.zip"
+  - "**/*.jar"
+  - "**/*.xlsx"
+  - "**/*.xls"
+  - "**/*.png"
+  - "**/*.jpg"
+  - "**/*.gif"
+  - "**/*.pdf"
+  - "**/.git/**"
