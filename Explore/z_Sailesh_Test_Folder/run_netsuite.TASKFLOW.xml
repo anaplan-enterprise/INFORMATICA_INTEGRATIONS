@@ -1,0 +1,126 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>iU4s7xvk0qZF3a-gt-283995-2025-01-20T10:22:09.313Z::tf.xml</types1:EntryId>
+      <types1:Name>run_netsuite</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>sailesh.kumaryadav@anaplan.com</types1:CreatedBy>
+      <types1:CreationDate>2025-01-20T10:22:09Z</types1:CreationDate>
+      <types1:ModifiedBy>sailesh.kumaryadav@anaplan.com</types1:ModifiedBy>
+      <types1:ModificationDate>2025-01-21T00:56:50Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>sailesh.kumaryadav@anaplan.com</types1:PublishedBy>
+      <types1:PublicationDate>2025-01-21T01:19:15Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/tf.run_netsuite/run_netsuite.tf.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   displayName="run_netsuite"
+                   name="run_netsuite"
+                   overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="Command Task 1" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest/>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">false</nvpair>
+            </extData>
+            <flow id="a">
+               <start id="b">
+                  <link id="m64wcuvn" targetId="m64wcuwj"/>
+               </start>
+               <eventContainer id="m64wcuwj">
+                  <service id="m64wcuvm">
+                     <title>Command Task 1</title>
+                     <serviceName>ICSExecuteCommandTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Task Name" source="constant">Command Task 1</parameter>
+                        <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                        <parameter name="Runtime Environment" source="constant">001P5E2500000000000D:IT_EAI_Agent</parameter>
+                        <parameter name="Max Wait" source="constant">86400</parameter>
+                        <parameter name="Script Name" source="constant"/>
+                        <parameter name="Input Arguments" source="constant"/>
+                        <parameter name="Work Directory" source="constant"/>
+                        <parameter name="RuntimeEnvGUID" source="constant">hAJdnKJx3qffrXyb5xiBIY</parameter>
+                        <parameter name="FailTaskIfAnyScriptFails" source="constant">false</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="INFA-commandTask">temp.Command Task 1</operation>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">Script1</operation>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">D:\IT_EAI\Projects\NetSuit\Script\all_json\run_bat.bat</operation>
+                           <operation source="constant"
+                                      to="INFA-commandTask/input[1]/script-1/inputArguments"/>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.Command Task 1/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.Command Task 1/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.Command Task 1/output/End_Time">End Time</operation>
+                        <operation source="field" to="temp.Command Task 1/output/Exit_Code">Exit Code</operation>
+                        <operation source="field" to="temp.Command Task 1/output/Execution_Status">Execution Status</operation>
+                        <operation source="field" to="temp.Command Task 1/output/Std_Error">Std Error</operation>
+                     </serviceOutput>
+                  </service>
+                  <link id="m64wcuvo" targetId="c"/>
+                  <events>
+                     <catch faultField="temp.Command Task 1/fault"
+                            id="m64wcuwi"
+                            interrupting="true"
+                            name="error">
+                        <suspend/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="INFA-commandTask"
+                              isByCopy="true"
+                              name="INFA-commandTask">
+                  <description>This process object represents a taskflow specific command task output field details.</description>
+                  <tags/>
+                  <detail>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>dYbb9GvYZ8EghI3MnlfbSD</types1:GUID>
+      <types1:DisplayName>run_netsuite</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2026-08-11T10:03:17.171Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

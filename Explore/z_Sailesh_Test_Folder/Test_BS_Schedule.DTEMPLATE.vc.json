@@ -1,0 +1,2607 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "name" : "Test_BS_Schedule",
+    "specialCharacterSupport" : "false",
+    "links" : [
+      {
+        "link" : "Expression -> AddrIDLkup"
+      },
+      {
+        "link" : "AddrIDLkup -> Joiner",
+        "groupLink" : "DefaultGroup -> Master"
+      },
+      {
+        "link" : "CompanyIDLkup -> Expression"
+      },
+      {
+        "link" : "OppQuoteLineDetails -> CompanyIDLkup"
+      },
+      {
+        "link" : "Expression1 -> Target"
+      },
+      {
+        "link" : "Sorter -> Expression1"
+      },
+      {
+        "link" : "Joiner -> Sorter",
+        "groupLink" : "OutputGroup -> DefaultGroup"
+      },
+      {
+        "link" : "BS_Details -> Joiner",
+        "groupLink" : "DefaultGroup -> Detail"
+      }
+    ],
+    "transformations" : [
+      {
+        "augmented" : "false",
+        "createTime" : "2019-09-30T18:34:25.351Z",
+        "name" : "OppQuoteLineDetails",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Id"
+            },
+            "name" : "SBQQ__QuoteLine__c_Id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 18,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Id"
+            },
+            "name" : "OpportunityLineItem_Id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 18,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OpportunityId"
+            },
+            "name" : "OpportunityId",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 18,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Services_Entity__c"
+            },
+            "name" : "Services_Entity__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Reseller__c"
+            },
+            "name" : "Reseller__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 18,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CurrencyIsoCode"
+            },
+            "name" : "CurrencyIsoCode",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 3,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Billing_Terms__c"
+            },
+            "name" : "Billing_Terms__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PO_Number__c"
+            },
+            "name" : "PO_Number__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PO_Status__c"
+            },
+            "name" : "PO_Status__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OS_Order_Number__c"
+            },
+            "name" : "OS_Order_Number__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Name"
+            },
+            "name" : "Name",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 120,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Contract_Date__c"
+            },
+            "name" : "Contract_Date__c",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Type"
+            },
+            "name" : "Type",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 40,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Transacted_on_Marketplace__c"
+            },
+            "name" : "Transacted_on_Marketplace__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Supersede_OS__c"
+            },
+            "name" : "Supersede_OS__c",
+            "platformType" : {
+              "name" : "integer"
+            },
+            "precision" : 10,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SBQQ__BillingStreet__c"
+            },
+            "name" : "SBQQ__BillingStreet__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SBQQ__BillingCity__c"
+            },
+            "name" : "SBQQ__BillingCity__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 40,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SBQQ__BillingState__c"
+            },
+            "name" : "SBQQ__BillingState__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 80,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SBQQ__BillingPostalCode__c"
+            },
+            "name" : "SBQQ__BillingPostalCode__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 20,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SBQQ__BillingCountry__c"
+            },
+            "name" : "SBQQ__BillingCountry__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 80,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Print_Layout__c"
+            },
+            "name" : "Print_Layout__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@jicv9iJvJIaiO2t6qM6PUt",
+          "connectionName" : "EAI_Salesforce_Connector",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "QUERY",
+          "typeSystem" : "Salesforce",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 100000,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "customQuery" : "select id, (Select id, opportunityid,opportunity.Services_Entity__c,\nopportunity.Reseller__c,\nopportunity.CurrencyISOCode,\nopportunity.Billing_Terms__c,\nopportunity.PO_Number__c,\nopportunity.PO_Status__c,\nopportunity.OS_Order_Number__c,\nopportunity.Name,\nopportunity.Contract_Date__c,\nopportunity.Type,\nopportunity.Transacted_On_Marketplace__c,\nopportunity.SBQQ__PrimaryQuote__r.Supersede_OS__c,\nopportunity.SBQQ__PrimaryQuote__r.SBQQ__BillingStreet__c,\nopportunity.SBQQ__PrimaryQuote__r.SBQQ__BillingCity__c,\nopportunity.SBQQ__PrimaryQuote__r.SBQQ__BillingState__c,\nopportunity.SBQQ__PrimaryQuote__r.SBQQ__BillingPostalCode__c,\nopportunity.SBQQ__PrimaryQuote__r.SBQQ__BillingCountry__c,\nopportunity.SBQQ__PrimaryQuote__r.Print_Layout__c from SBQQ__OpportunityProducts__r)  from SBQQ__QuoteLine__c where id in (select Quote_Line__c from Billing_Schedule_Line_Item__c where Billing_Schedule__r.Workday_Sync_Status__c = 'Ready for Sync' )",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Record ID",
+                "nativeName" : "Id",
+                "nativeType" : "id",
+                "original" : "false",
+                "precision" : 18,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SBQQ__QuoteLine__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Line Item ID",
+                "nativeName" : "Id",
+                "nativeType" : "id",
+                "original" : "false",
+                "precision" : 18,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "OpportunityLineItem."
+                  }
+                ]
+              },
+              {
+                "name" : "OpportunityId",
+                "fieldType" : "CONNECTOR",
+                "label" : "Opportunity ID",
+                "nativeName" : "OpportunityId",
+                "nativeType" : "reference",
+                "original" : "false",
+                "precision" : 18,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "OpportunityLineItem."
+                  }
+                ]
+              },
+              {
+                "name" : "Services_Entity__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Anaplan Services Entity",
+                "nativeName" : "Services_Entity__c",
+                "nativeType" : "picklist",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "opportunity."
+                  }
+                ]
+              },
+              {
+                "name" : "Reseller__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Bill To Entity",
+                "nativeName" : "Reseller__c",
+                "nativeType" : "reference",
+                "original" : "false",
+                "precision" : 18,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "opportunity."
+                  }
+                ]
+              },
+              {
+                "name" : "CurrencyIsoCode",
+                "fieldType" : "CONNECTOR",
+                "label" : "Opportunity Currency",
+                "nativeName" : "CurrencyIsoCode",
+                "nativeType" : "picklist",
+                "original" : "false",
+                "precision" : 3,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "opportunity."
+                  }
+                ]
+              },
+              {
+                "name" : "Billing_Terms__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Payment Terms",
+                "nativeName" : "Billing_Terms__c",
+                "nativeType" : "picklist",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "opportunity."
+                  }
+                ]
+              },
+              {
+                "name" : "PO_Number__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "PO Number",
+                "nativeName" : "PO_Number__c",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "opportunity."
+                  }
+                ]
+              },
+              {
+                "name" : "PO_Status__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "PO Status",
+                "nativeName" : "PO_Status__c",
+                "nativeType" : "picklist",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "opportunity."
+                  }
+                ]
+              },
+              {
+                "name" : "OS_Order_Number__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Order Number",
+                "nativeName" : "OS_Order_Number__c",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "opportunity."
+                  }
+                ]
+              },
+              {
+                "name" : "Name",
+                "fieldType" : "CONNECTOR",
+                "label" : "Name",
+                "nativeName" : "Name",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 120,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "opportunity."
+                  }
+                ]
+              },
+              {
+                "name" : "Contract_Date__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Order Effective Date",
+                "nativeName" : "Contract_Date__c",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "opportunity."
+                  }
+                ]
+              },
+              {
+                "name" : "Type",
+                "fieldType" : "CONNECTOR",
+                "label" : "Opportunity Type",
+                "nativeName" : "Type",
+                "nativeType" : "picklist",
+                "original" : "false",
+                "precision" : 40,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "opportunity."
+                  }
+                ]
+              },
+              {
+                "name" : "Transacted_on_Marketplace__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Transacted on Marketplace",
+                "nativeName" : "Transacted_on_Marketplace__c",
+                "nativeType" : "picklist",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "opportunity."
+                  }
+                ]
+              },
+              {
+                "name" : "Supersede_OS__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Supersede OS",
+                "nativeName" : "Supersede_OS__c",
+                "nativeType" : "boolean",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SBQQ__Quote__c."
+                  }
+                ]
+              },
+              {
+                "name" : "SBQQ__BillingStreet__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Bill To Street",
+                "nativeName" : "SBQQ__BillingStreet__c",
+                "nativeType" : "textarea",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SBQQ__Quote__c."
+                  }
+                ]
+              },
+              {
+                "name" : "SBQQ__BillingCity__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Bill To City",
+                "nativeName" : "SBQQ__BillingCity__c",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 40,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SBQQ__Quote__c."
+                  }
+                ]
+              },
+              {
+                "name" : "SBQQ__BillingState__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Bill To State",
+                "nativeName" : "SBQQ__BillingState__c",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 80,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SBQQ__Quote__c."
+                  }
+                ]
+              },
+              {
+                "name" : "SBQQ__BillingPostalCode__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Bill To Postal Code",
+                "nativeName" : "SBQQ__BillingPostalCode__c",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 20,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SBQQ__Quote__c."
+                  }
+                ]
+              },
+              {
+                "name" : "SBQQ__BillingCountry__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Bill To Country",
+                "nativeName" : "SBQQ__BillingCountry__c",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 80,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SBQQ__Quote__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Print_Layout__c",
+                "fieldType" : "CONNECTOR",
+                "label" : "Print Layout",
+                "nativeName" : "Print_Layout__c",
+                "nativeType" : "picklist",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "SBQQ__Quote__c."
+                  }
+                ]
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2019-09-30T18:34:25.354Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "MANUAL",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "targetFieldsOrdered" : "false",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "OpportunityID"
+            },
+            "name" : "OpportunityID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Opportunity_Line_Id"
+            },
+            "name" : "Opportunity_Line_Id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Quote_Line_ID"
+            },
+            "name" : "Quote_Line_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Billing_Address_ID"
+            },
+            "name" : "Billing_Address_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Payments_Terms"
+            },
+            "name" : "Payments_Terms",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CurrencyISOCode"
+            },
+            "name" : "CurrencyISOCode",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BillingAccountID"
+            },
+            "name" : "BillingAccountID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PO_Number__c"
+            },
+            "name" : "PO_Number__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Invoice_Type"
+            },
+            "name" : "Invoice_Type",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContractName"
+            },
+            "name" : "ContractName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Quote_ID"
+            },
+            "name" : "Quote_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BSL_Amount"
+            },
+            "name" : "BSL_Amount",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BSL_Quantity"
+            },
+            "name" : "BSL_Quantity",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BSL_Start_Date"
+            },
+            "name" : "BSL_Start_Date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BSL_End_Date"
+            },
+            "name" : "BSL_End_Date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BS_Amount"
+            },
+            "name" : "BS_Amount",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BS_Billing_Date__c"
+            },
+            "name" : "BS_Billing_Date__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BS_Start_Date"
+            },
+            "name" : "BS_Start_Date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BS_End_Date"
+            },
+            "name" : "BS_End_Date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BS_CurrencyCode"
+            },
+            "name" : "BS_CurrencyCode",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BS_ID"
+            },
+            "name" : "BS_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BS_Line_ID"
+            },
+            "name" : "BS_Line_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BS_Schedule_Type__c"
+            },
+            "name" : "BS_Schedule_Type__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Company_Reference_Id"
+            },
+            "name" : "Company_Reference_Id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "OS_Order_Number__c"
+            },
+            "name" : "OS_Order_Number__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@2jmDCRFGdEFieBis5qrbI1",
+          "connectionName" : "EAI_File_Connector_SF_WD_BillingSchedules_Subscr_Target",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "BS_SFDC_Dump.csv",
+            "label" : "BS_SFDC_Dump.csv",
+            "path" : "BS_SFDC_Dump.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "OpportunityID",
+                "fieldType" : "UNDEFINED",
+                "label" : "OpportunityID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Opportunity_Line_Id",
+                "fieldType" : "UNDEFINED",
+                "label" : "Opportunity_Line_Id",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Quote_Line_ID",
+                "fieldType" : "UNDEFINED",
+                "label" : "Quote_Line_ID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Billing_Address_ID",
+                "fieldType" : "UNDEFINED",
+                "label" : "Billing_Address_ID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Payments_Terms",
+                "fieldType" : "UNDEFINED",
+                "label" : "Payments_Terms",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "CurrencyISOCode",
+                "fieldType" : "UNDEFINED",
+                "label" : "CurrencyISOCode",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BillingAccountID",
+                "fieldType" : "UNDEFINED",
+                "label" : "BillingAccountID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "PO_Number__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "PO_Number__c",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Invoice_Type",
+                "fieldType" : "UNDEFINED",
+                "label" : "Invoice_Type",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "ContractName",
+                "fieldType" : "UNDEFINED",
+                "label" : "ContractName",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Quote_ID",
+                "fieldType" : "UNDEFINED",
+                "label" : "Quote_ID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BSL_Amount",
+                "fieldType" : "UNDEFINED",
+                "label" : "BSL_Amount",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BSL_Quantity",
+                "fieldType" : "UNDEFINED",
+                "label" : "BSL_Quantity",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BSL_Start_Date",
+                "fieldType" : "UNDEFINED",
+                "label" : "BSL_Start_Date",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BSL_End_Date",
+                "fieldType" : "UNDEFINED",
+                "label" : "BSL_End_Date",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BS_Amount",
+                "fieldType" : "UNDEFINED",
+                "label" : "BS_Amount",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BS_Billing_Date__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "BS_Billing_Date__c",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BS_Start_Date",
+                "fieldType" : "UNDEFINED",
+                "label" : "BS_Start_Date",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BS_End_Date",
+                "fieldType" : "UNDEFINED",
+                "label" : "BS_End_Date",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BS_CurrencyCode",
+                "fieldType" : "UNDEFINED",
+                "label" : "BS_CurrencyCode",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BS_ID",
+                "fieldType" : "UNDEFINED",
+                "label" : "BS_ID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BS_Line_ID",
+                "fieldType" : "UNDEFINED",
+                "label" : "BS_Line_ID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "BS_Schedule_Type__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "BS_Schedule_Type__c",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Company_Reference_Id",
+                "fieldType" : "UNDEFINED",
+                "label" : "Company_Reference_Id",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "BS_SFDC_Dump.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "OS_Order_Number__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "OS_Order_Number__c",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerAndDataDelimiter" : 0,
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        },
+        "manualMappings" : {
+          "mappingList" : [
+            {
+              "fromFieldName" : "Src_OpportunityId",
+              "toField" : {
+                "name" : "OpportunityID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Src_OpportunityLineItem_Id",
+              "toField" : {
+                "name" : "Opportunity_Line_Id"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Src_SBQQ__QuoteLine__c_Id",
+              "toField" : {
+                "name" : "Quote_Line_ID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Src_Address_ID",
+              "toField" : {
+                "name" : "Billing_Address_ID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Src_Billing_Terms__c",
+              "toField" : {
+                "name" : "Payments_Terms"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Src_CurrencyIsoCode",
+              "toField" : {
+                "name" : "CurrencyISOCode"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Src_Reseller__c",
+              "toField" : {
+                "name" : "BillingAccountID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Src_PO_Number__c",
+              "toField" : {
+                "name" : "PO_Number__c"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Src_Name",
+              "toField" : {
+                "name" : "ContractName"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "BS_Quote__c",
+              "toField" : {
+                "name" : "Quote_ID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "BS_Start_Date__c",
+              "toField" : {
+                "name" : "BSL_Start_Date"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "BS_End_Date__c",
+              "toField" : {
+                "name" : "BSL_End_Date"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "BS_Billing_Amount__c",
+              "toField" : {
+                "name" : "BS_Amount"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "BS_Billing_Period_Start_Date__c",
+              "toField" : {
+                "name" : "BS_Start_Date"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "BS_Billing_Period_End_Date__c",
+              "toField" : {
+                "name" : "BS_End_Date"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "BS_CurrencyIsoCode",
+              "toField" : {
+                "name" : "BS_CurrencyCode"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Src_v_Invoice_Type",
+              "toField" : {
+                "name" : "Invoice_Type"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "BS_Billing_Schedule_Line_Item__c_Id",
+              "toField" : {
+                "name" : "BS_Line_ID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "BS_Billing_Schedule__c_Id",
+              "toField" : {
+                "name" : "BS_ID"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "BS_Schedule_Type__c",
+              "toField" : {
+                "name" : "BS_Schedule_Type__c"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Src_Company_Ref_ID",
+              "toField" : {
+                "name" : "Company_Reference_Id"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "v_billing_date",
+              "toField" : {
+                "name" : "BS_Billing_Date__c"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "v_amount",
+              "toField" : {
+                "name" : "BSL_Amount"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "Src_OS_Order_Number__c",
+              "toField" : {
+                "name" : "OS_Order_Number__c"
+              },
+              "fromFieldNames" : null
+            }
+          ]
+        }
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2019-09-30T18:40:42.329Z",
+        "name" : "Expression",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "name" : "v_Billing_Street",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 1000,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "REPLACESTR (1,SBQQ__BillingStreet__c,CHR(10),CHR(13), ' ')"
+          },
+          {
+            "name" : "v_Billing_City",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 1000,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif ( upper(SBQQ__BillingCountry__c) = 'UNITED ARAB EMIRATES','BLANK',SBQQ__BillingCity__c)"
+          },
+          {
+            "name" : "v_address_type",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "'Billing'"
+          },
+          {
+            "name" : "v_Invoice_Type",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif (not(isnull(Transacted_on_Marketplace__c)) and Transacted_on_Marketplace__c <> '' , 'Marketplace',\niif (Print_Layout__c = 'Summary Pricing Only', 'Partially_Suppressed' ,\niif (PO_Status__c = 'Full PO' or PO_Status__c = 'POEF Signed', 'Auto_Approve_Subscription' ,\n'Standard')))"
+          }
+        ]
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2019-09-30T18:45:02.171Z",
+        "name" : "AddrIDLkup",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Lookup cache directory name",
+            "value" : "$PMCacheDir"
+          },
+          {
+            "name" : "Lookup cache persistent",
+            "value" : "false"
+          },
+          {
+            "name" : "Lookup Data Cache Size",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Lookup Index Cache Size",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          },
+          {
+            "name" : "Case Sensitive String Comparison",
+            "value" : "false"
+          },
+          {
+            "name" : "Sorted Input",
+            "value" : "false"
+          },
+          {
+            "name" : "Lookup source is static",
+            "value" : "false"
+          },
+          {
+            "name" : "Pre-build lookup cache",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Optional",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "multipleMatchPolicy" : "Use Any Value",
+        "unconnected" : "false",
+        "useLabels" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Address_ID"
+            },
+            "name" : "Address_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Customer_ID"
+            },
+            "name" : "Customer_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "city"
+            },
+            "name" : "city",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Billing_Usage"
+            },
+            "name" : "Billing_Usage",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "v_street"
+            },
+            "name" : "v_street",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "inputPortNames" : null,
+        "lookupConditions" : [
+          {
+            "leftOperand" : "Customer_ID",
+            "operator" : "=",
+            "rightOperand" : "Reseller__c"
+          },
+          {
+            "leftOperand" : "Billing_Usage",
+            "operator" : "=",
+            "rightOperand" : "v_address_type"
+          },
+          {
+            "leftOperand" : "city",
+            "operator" : "=",
+            "rightOperand" : "v_Billing_City"
+          },
+          {
+            "leftOperand" : "v_street",
+            "operator" : "=",
+            "rightOperand" : "v_Billing_Street"
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@dYc3zdrSvMakEIlPtWKUyG",
+          "connectionName" : "EAI_File_Connector_WorkDay_RAAS_Files",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "Customer_AddressList.csv",
+            "label" : "Customer_AddressList.csv",
+            "path" : "Customer_AddressList.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Address_ID",
+                "fieldType" : "CONNECTOR",
+                "label" : "Address_ID",
+                "nativeName" : "Address_ID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Customer_AddressList.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Customer_ID",
+                "fieldType" : "CONNECTOR",
+                "label" : "Customer_ID",
+                "nativeName" : "Customer_ID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Customer_AddressList.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "city",
+                "fieldType" : "CONNECTOR",
+                "label" : "city",
+                "nativeName" : "city",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Customer_AddressList.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Billing_Usage",
+                "fieldType" : "CONNECTOR",
+                "label" : "Billing_Usage",
+                "nativeName" : "Billing_Usage",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Customer_AddressList.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "v_street",
+                "fieldType" : "CONNECTOR",
+                "label" : "v_street",
+                "nativeName" : "v_street",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Customer_AddressList.csv"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerAndDataDelimiter" : 0,
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2019-09-30T19:01:41.490Z",
+        "name" : "BS_Details",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Id"
+            },
+            "name" : "Billing_Schedule_Line_Item__c_Id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 18,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Amount__c"
+            },
+            "name" : "Amount__c",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 18,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "Quote_Line__c"
+            },
+            "name" : "Quote_Line__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 18,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Start_Date__c"
+            },
+            "name" : "Start_Date__c",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "End_Date__c"
+            },
+            "name" : "End_Date__c",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Id"
+            },
+            "name" : "Billing_Schedule__c_Id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 18,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Billing_Amount__c"
+            },
+            "name" : "Billing_Amount__c",
+            "platformType" : {
+              "name" : "decimal"
+            },
+            "precision" : 18,
+            "scale" : 2
+          },
+          {
+            "adapterField" : {
+              "name" : "Billing_Date__c"
+            },
+            "name" : "Billing_Date__c",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Billing_Period_End_Date__c"
+            },
+            "name" : "Billing_Period_End_Date__c",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "Billing_Period_Start_Date__c"
+            },
+            "name" : "Billing_Period_Start_Date__c",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          },
+          {
+            "adapterField" : {
+              "name" : "CurrencyIsoCode"
+            },
+            "name" : "CurrencyIsoCode",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 3,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Quote__c"
+            },
+            "name" : "Quote__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 18,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Schedule_Type__c"
+            },
+            "name" : "Schedule_Type__c",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@jicv9iJvJIaiO2t6qM6PUt",
+          "connectionName" : "EAI_Salesforce_Connector",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "QUERY",
+          "typeSystem" : "Salesforce",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 100000,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "customQuery" : "SELECT \nId,Amount__c,Quote_Line__c,Start_Date__c,End_date__c,\nBilling_Schedule__r.id,\nBilling_Schedule__r.Billing_Amount__c,\nBilling_Schedule__r.Billing_Date__c,\nBilling_Schedule__r.Billing_Period_End_Date__c,\nBilling_Schedule__r.Billing_Period_Start_Date__c,\nBilling_Schedule__r.CurrencyIsoCode,\nBilling_Schedule__r.Quote__c,\nBilling_Schedule__r.Schedule_Type__c\n FROM Billing_Schedule_Line_Item__c \nwhere Billing_Schedule__r.Workday_Sync_Status__c = 'Ready for Sync'\norder by Quote_Line__c,Start_Date__c",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Id",
+                "fieldType" : "UNDEFINED",
+                "label" : "Record ID",
+                "nativeType" : "id",
+                "original" : "false",
+                "precision" : 18,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule_Line_Item__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Amount__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "Amount",
+                "nativeType" : "currency",
+                "original" : "false",
+                "precision" : 18,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule_Line_Item__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Quote_Line__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "Quote Line",
+                "nativeType" : "reference",
+                "original" : "false",
+                "precision" : 18,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule_Line_Item__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Start_Date__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "Start Date",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule_Line_Item__c."
+                  }
+                ]
+              },
+              {
+                "name" : "End_Date__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "End Date",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule_Line_Item__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Id",
+                "fieldType" : "UNDEFINED",
+                "label" : "Record ID",
+                "nativeType" : "id",
+                "original" : "false",
+                "precision" : 18,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Billing_Amount__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "Billing Amount",
+                "nativeType" : "currency",
+                "original" : "false",
+                "precision" : 18,
+                "scale" : 2,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Billing_Date__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "Billing Date",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Billing_Period_End_Date__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "Billing Period End Date",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Billing_Period_Start_Date__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "Billing Period Start Date",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 10,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule__c."
+                  }
+                ]
+              },
+              {
+                "name" : "CurrencyIsoCode",
+                "fieldType" : "UNDEFINED",
+                "label" : "Currency ISO Code",
+                "nativeType" : "picklist",
+                "original" : "false",
+                "precision" : 3,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Quote__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "Quote",
+                "nativeType" : "reference",
+                "original" : "false",
+                "precision" : 18,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule__c."
+                  }
+                ]
+              },
+              {
+                "name" : "Schedule_Type__c",
+                "fieldType" : "UNDEFINED",
+                "label" : "Schedule Type",
+                "nativeType" : "picklist",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Billing_Schedule__c."
+                  }
+                ]
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2019-09-30T19:02:40.733Z",
+        "name" : "Joiner",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "Master",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "true",
+                "include" : "true",
+                "bulkRenameOption" : {
+                  "literal" : "Src_",
+                  "suffix" : "false"
+                }
+              }
+            ]
+          },
+          {
+            "input" : "true",
+            "name" : "Detail",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "true",
+                "include" : "true",
+                "bulkRenameOption" : {
+                  "literal" : "BS_",
+                  "suffix" : "false"
+                }
+              }
+            ]
+          },
+          {
+            "input" : "false",
+            "name" : "OutputGroup",
+            "output" : "true"
+          }
+        ],
+        "joinType" : "Normal Join",
+        "joinConditions" : [
+          {
+            "leftOperand" : "Src_SBQQ__QuoteLine__c_Id",
+            "operator" : "=",
+            "rightOperand" : "BS_Quote_Line__c"
+          }
+        ]
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2019-09-30T22:21:24.910Z",
+        "name" : "CompanyIDLkup",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Lookup cache directory name",
+            "value" : "$PMCacheDir"
+          },
+          {
+            "name" : "Lookup cache persistent",
+            "value" : "false"
+          },
+          {
+            "name" : "Lookup Data Cache Size",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Lookup Index Cache Size",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          },
+          {
+            "name" : "Case Sensitive String Comparison",
+            "value" : "false"
+          },
+          {
+            "name" : "Sorted Input",
+            "value" : "false"
+          },
+          {
+            "name" : "Lookup source is static",
+            "value" : "false"
+          },
+          {
+            "name" : "Pre-build lookup cache",
+            "value" : "AUTO"
+          },
+          {
+            "name" : "Optional",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "multipleMatchPolicy" : "Use Any Value",
+        "unconnected" : "false",
+        "useLabels" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "CompanyName"
+            },
+            "name" : "CompanyName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Company_Ref_ID"
+            },
+            "name" : "Company_Ref_ID",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "inputPortNames" : null,
+        "lookupConditions" : [
+          {
+            "leftOperand" : "CompanyName",
+            "operator" : "=",
+            "rightOperand" : "Services_Entity__c"
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@dYc3zdrSvMakEIlPtWKUyG",
+          "connectionName" : "EAI_File_Connector_WorkDay_RAAS_Files",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "WD_Companies_Dump.txt",
+            "label" : "WD_Companies_Dump.txt",
+            "path" : "WD_Companies_Dump.txt",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "CompanyName",
+                "fieldType" : "UNDEFINED",
+                "label" : "CompanyName",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "WD_Companies_Dump.txt"
+                  }
+                ]
+              },
+              {
+                "name" : "Company_Ref_ID",
+                "fieldType" : "UNDEFINED",
+                "label" : "Company_Ref_ID",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "WD_Companies_Dump.txt"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerAndDataDelimiter" : 0,
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2019-10-04T18:44:32.550Z",
+        "name" : "Expression1",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "name" : "v_billing_date",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif ( BS_Billing_Date__c < Src_Contract_Date__c,Src_Contract_Date__c,BS_Billing_Date__c)"
+          },
+          {
+            "name" : "v_prev_key",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 200,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "v_curr_key"
+          },
+          {
+            "name" : "v_curr_key",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 200,
+            "scale" : 0,
+            "expFieldType" : "VARIABLE",
+            "expression" : "Src_OpportunityLineItem_Id"
+          },
+          {
+            "name" : "v_amount",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 200,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif (( v_prev_key <> v_curr_key  or isnull(v_prev_key) ) and Src_CurrencyIsoCode = 'JPY' and \nto_integer(substr(to_char(BS_Amount__c),INSTR( to_char(BS_Amount__c), '.'  ) + 1)) * 100000 > 0 , to_char(floor(BS_Amount__c) + 1), \niif (Src_CurrencyIsoCode = 'JPY',to_char(floor(BS_Amount__c)),\nto_char(BS_Amount__c)))"
+          }
+        ]
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2019-10-30T20:05:08.847Z",
+        "name" : "Sorter",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sorterMode" : "SIMPLE",
+        "sortEntries" : [
+          {
+            "ascending" : "true",
+            "fieldName" : "Src_OpportunityLineItem_Id"
+          }
+        ]
+      }
+    ]
+  },
+  "vcsExportTime" : "2026-08-11 15:33:16 IST"
+}

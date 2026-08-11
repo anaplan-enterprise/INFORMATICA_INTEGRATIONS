@@ -1,0 +1,3542 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "m_scout_contract",
+    "specialCharacterSupport" : "false",
+    "links" : [
+      {
+        "link" : "Source -> Target"
+      }
+    ],
+    "transformations" : [
+      {
+        "augmented" : "false",
+        "createTime" : "2025-04-30T03:01:41.265Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "File Reader Truncate String Null",
+            "value" : "NO"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "id"
+            },
+            "name" : "id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "type"
+            },
+            "name" : "type",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "actual_end_date"
+            },
+            "name" : "actual_end_date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "actual_start_date"
+            },
+            "name" : "actual_start_date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "auto_renewal"
+            },
+            "name" : "auto_renewal",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "custom_fields"
+            },
+            "name" : "custom_fields",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "description"
+            },
+            "name" : "description",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "needs_attention"
+            },
+            "name" : "needs_attention",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 5,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "renew_number_of_times"
+            },
+            "name" : "renew_number_of_times",
+            "platformType" : {
+              "name" : "double"
+            },
+            "precision" : 15,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "renewal_term_unit"
+            },
+            "name" : "renewal_term_unit",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "renewal_term_value"
+            },
+            "name" : "renewal_term_value",
+            "platformType" : {
+              "name" : "double"
+            },
+            "precision" : 15,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "renewal_termination_notice_unit"
+            },
+            "name" : "renewal_termination_notice_unit",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "renewal_termination_notice_value"
+            },
+            "name" : "renewal_termination_notice_value",
+            "platformType" : {
+              "name" : "double"
+            },
+            "precision" : 15,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "renewal_termination_reminder_unit"
+            },
+            "name" : "renewal_termination_reminder_unit",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "renewal_termination_reminder_value"
+            },
+            "name" : "renewal_termination_reminder_value",
+            "platformType" : {
+              "name" : "double"
+            },
+            "precision" : 15,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "state"
+            },
+            "name" : "state",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "state_label"
+            },
+            "name" : "state_label",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "terminated_note"
+            },
+            "name" : "terminated_note",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "terminated_reason"
+            },
+            "name" : "terminated_reason",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "title"
+            },
+            "name" : "title",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "approval_rounds"
+            },
+            "name" : "approval_rounds",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "approved_at"
+            },
+            "name" : "approved_at",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "first_sent_for_approval_at"
+            },
+            "name" : "first_sent_for_approval_at",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "marked_as_needs_attention_at"
+            },
+            "name" : "marked_as_needs_attention_at",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "needs_attention_reason"
+            },
+            "name" : "needs_attention_reason",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "number"
+            },
+            "name" : "number",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "renewal_termination_notice_date"
+            },
+            "name" : "renewal_termination_notice_date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "renewal_termination_reminder_date"
+            },
+            "name" : "renewal_termination_reminder_date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "sent_for_approval_at"
+            },
+            "name" : "sent_for_approval_at",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "updated_at"
+            },
+            "name" : "updated_at",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "scc_updated_at"
+            },
+            "name" : "scc_updated_at",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "request_submitted_at"
+            },
+            "name" : "request_submitted_at",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "request_opened_at"
+            },
+            "name" : "request_opened_at",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "needs_attention_note"
+            },
+            "name" : "needs_attention_note",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "actual_spend_amount"
+            },
+            "name" : "actual_spend_amount",
+            "platformType" : {
+              "name" : "double"
+            },
+            "precision" : 15,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "contract_type_id"
+            },
+            "name" : "contract_type_id",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "spend_category_id"
+            },
+            "name" : "spend_category_id",
+            "platformType" : {
+              "name" : "double"
+            },
+            "precision" : 15,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "relationshipssupplier_companydataid"
+            },
+            "name" : "relationshipssupplier_companydataid",
+            "platformType" : {
+              "name" : "double"
+            },
+            "precision" : 15,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "relationshipssupplier_companydatatype"
+            },
+            "name" : "relationshipssupplier_companydatatype",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "relationshipscontract_typedataid"
+            },
+            "name" : "relationshipscontract_typedataid",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "relationshipscontract_typedatatype"
+            },
+            "name" : "relationshipscontract_typedatatype",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "relationshipsattachmentsdata"
+            },
+            "name" : "relationshipsattachmentsdata",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "relationshipsownerdataid"
+            },
+            "name" : "relationshipsownerdataid",
+            "platformType" : {
+              "name" : "double"
+            },
+            "precision" : 15,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "relationshipsownerdatatype"
+            },
+            "name" : "relationshipsownerdatatype",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "relationshipscreatordataid"
+            },
+            "name" : "relationshipscreatordataid",
+            "platformType" : {
+              "name" : "bigint"
+            },
+            "precision" : 19,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "relationshipscreatordatatype"
+            },
+            "name" : "relationshipscreatordatatype",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "relationshipsdocusign_envelopesdata"
+            },
+            "name" : "relationshipsdocusign_envelopesdata",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "linksself"
+            },
+            "name" : "linksself",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "attachment_id"
+            },
+            "name" : "attachment_id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "attachment_name"
+            },
+            "name" : "attachment_name",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Anaplan_Entity"
+            },
+            "name" : "Anaplan_Entity",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Business_Category"
+            },
+            "name" : "Business_Category",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "is_tech_transaction"
+            },
+            "name" : "is_tech_transaction",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FedRAMP"
+            },
+            "name" : "FedRAMP",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Requester"
+            },
+            "name" : "Requester",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "BudgetedCostCenter"
+            },
+            "name" : "BudgetedCostCenter",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ServiceLocation"
+            },
+            "name" : "ServiceLocation",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "RogueSpend"
+            },
+            "name" : "RogueSpend",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContractPaper"
+            },
+            "name" : "ContractPaper",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "ContractType"
+            },
+            "name" : "ContractType",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "CloudMarketplace"
+            },
+            "name" : "CloudMarketplace",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "FinalSpend"
+            },
+            "name" : "FinalSpend",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "SAVINGSCALCULATION"
+            },
+            "name" : "SAVINGSCALCULATION",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Currency"
+            },
+            "name" : "Currency",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "PaymentTerms"
+            },
+            "name" : "PaymentTerms",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Negotiated_Payment_Terms"
+            },
+            "name" : "Negotiated_Payment_Terms",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Contract_Start_Date"
+            },
+            "name" : "Contract_Start_Date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Contract_Period"
+            },
+            "name" : "Contract_Period",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Renewal"
+            },
+            "name" : "Renewal",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Auto_Renewal_cust"
+            },
+            "name" : "Auto_Renewal_cust",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "competitively_bid"
+            },
+            "name" : "competitively_bid",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "TB_Preferred1"
+            },
+            "name" : "TB_Preferred1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "TB_Preferred2"
+            },
+            "name" : "TB_Preferred2",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "bus_risks"
+            },
+            "name" : "bus_risks",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "notes"
+            },
+            "name" : "notes",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Sourcing_Owner_Attachments"
+            },
+            "name" : "Sourcing_Owner_Attachments",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "READY_DOCUSIGN"
+            },
+            "name" : "READY_DOCUSIGN",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "WORKDAY_REQUISITION"
+            },
+            "name" : "WORKDAY_REQUISITION",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "wrk_purchase_order"
+            },
+            "name" : "wrk_purchase_order",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "nme_email_of_contact"
+            },
+            "name" : "nme_email_of_contact",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "nme_email_of_signer"
+            },
+            "name" : "nme_email_of_signer",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@1QZ0JuXB8arehMGjkeINOC",
+          "connectionName" : "EAI_GCP_GBQ_INFA_v2",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "scout/vw_contracts_data",
+            "label" : "scout/vw_contracts_data",
+            "objectName" : "vw_contracts_data",
+            "path" : "scout/vw_contracts_data",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "id",
+                "fieldType" : "CONNECTOR",
+                "label" : "id",
+                "nativeName" : "id",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "type",
+                "fieldType" : "CONNECTOR",
+                "label" : "type",
+                "nativeName" : "type",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "actual_end_date",
+                "fieldType" : "CONNECTOR",
+                "label" : "actual_end_date",
+                "nativeName" : "actual_end_date",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "actual_start_date",
+                "fieldType" : "CONNECTOR",
+                "label" : "actual_start_date",
+                "nativeName" : "actual_start_date",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "auto_renewal",
+                "fieldType" : "CONNECTOR",
+                "label" : "auto_renewal",
+                "nativeName" : "auto_renewal",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "custom_fields",
+                "fieldType" : "CONNECTOR",
+                "label" : "custom_fields",
+                "nativeName" : "custom_fields",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "description",
+                "fieldType" : "CONNECTOR",
+                "label" : "description",
+                "nativeName" : "description",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "needs_attention",
+                "fieldType" : "CONNECTOR",
+                "label" : "needs_attention",
+                "nativeName" : "needs_attention",
+                "nativeType" : "boolean",
+                "original" : "false",
+                "precision" : 5,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "renew_number_of_times",
+                "fieldType" : "CONNECTOR",
+                "label" : "renew_number_of_times",
+                "nativeName" : "renew_number_of_times",
+                "nativeType" : "float",
+                "original" : "false",
+                "precision" : 16,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "renewal_term_unit",
+                "fieldType" : "CONNECTOR",
+                "label" : "renewal_term_unit",
+                "nativeName" : "renewal_term_unit",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "renewal_term_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "renewal_term_value",
+                "nativeName" : "renewal_term_value",
+                "nativeType" : "float",
+                "original" : "false",
+                "precision" : 16,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "renewal_termination_notice_unit",
+                "fieldType" : "CONNECTOR",
+                "label" : "renewal_termination_notice_unit",
+                "nativeName" : "renewal_termination_notice_unit",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "renewal_termination_notice_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "renewal_termination_notice_value",
+                "nativeName" : "renewal_termination_notice_value",
+                "nativeType" : "float",
+                "original" : "false",
+                "precision" : 16,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "renewal_termination_reminder_unit",
+                "fieldType" : "CONNECTOR",
+                "label" : "renewal_termination_reminder_unit",
+                "nativeName" : "renewal_termination_reminder_unit",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "renewal_termination_reminder_value",
+                "fieldType" : "CONNECTOR",
+                "label" : "renewal_termination_reminder_value",
+                "nativeName" : "renewal_termination_reminder_value",
+                "nativeType" : "float",
+                "original" : "false",
+                "precision" : 16,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "state",
+                "fieldType" : "CONNECTOR",
+                "label" : "state",
+                "nativeName" : "state",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "state_label",
+                "fieldType" : "CONNECTOR",
+                "label" : "state_label",
+                "nativeName" : "state_label",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "terminated_note",
+                "fieldType" : "CONNECTOR",
+                "label" : "terminated_note",
+                "nativeName" : "terminated_note",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "terminated_reason",
+                "fieldType" : "CONNECTOR",
+                "label" : "terminated_reason",
+                "nativeName" : "terminated_reason",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "title",
+                "fieldType" : "CONNECTOR",
+                "label" : "title",
+                "nativeName" : "title",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "approval_rounds",
+                "fieldType" : "CONNECTOR",
+                "label" : "approval_rounds",
+                "nativeName" : "approval_rounds",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "approved_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "approved_at",
+                "nativeName" : "approved_at",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "first_sent_for_approval_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "first_sent_for_approval_at",
+                "nativeName" : "first_sent_for_approval_at",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "marked_as_needs_attention_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "marked_as_needs_attention_at",
+                "nativeName" : "marked_as_needs_attention_at",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "needs_attention_reason",
+                "fieldType" : "CONNECTOR",
+                "label" : "needs_attention_reason",
+                "nativeName" : "needs_attention_reason",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "number",
+                "fieldType" : "CONNECTOR",
+                "label" : "number",
+                "nativeName" : "number",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "renewal_termination_notice_date",
+                "fieldType" : "CONNECTOR",
+                "label" : "renewal_termination_notice_date",
+                "nativeName" : "renewal_termination_notice_date",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "renewal_termination_reminder_date",
+                "fieldType" : "CONNECTOR",
+                "label" : "renewal_termination_reminder_date",
+                "nativeName" : "renewal_termination_reminder_date",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "sent_for_approval_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "sent_for_approval_at",
+                "nativeName" : "sent_for_approval_at",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "updated_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "updated_at",
+                "nativeName" : "updated_at",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "scc_updated_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "scc_updated_at",
+                "nativeName" : "scc_updated_at",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "request_submitted_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "request_submitted_at",
+                "nativeName" : "request_submitted_at",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "request_opened_at",
+                "fieldType" : "CONNECTOR",
+                "label" : "request_opened_at",
+                "nativeName" : "request_opened_at",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "needs_attention_note",
+                "fieldType" : "CONNECTOR",
+                "label" : "needs_attention_note",
+                "nativeName" : "needs_attention_note",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "actual_spend_amount",
+                "fieldType" : "CONNECTOR",
+                "label" : "actual_spend_amount",
+                "nativeName" : "actual_spend_amount",
+                "nativeType" : "float",
+                "original" : "false",
+                "precision" : 16,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "contract_type_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "contract_type_id",
+                "nativeName" : "contract_type_id",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "spend_category_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "spend_category_id",
+                "nativeName" : "spend_category_id",
+                "nativeType" : "float",
+                "original" : "false",
+                "precision" : 16,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "relationshipssupplier_companydataid",
+                "fieldType" : "CONNECTOR",
+                "label" : "relationshipssupplier_companydataid",
+                "nativeName" : "relationshipssupplier_companydataid",
+                "nativeType" : "float",
+                "original" : "false",
+                "precision" : 16,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "relationshipssupplier_companydatatype",
+                "fieldType" : "CONNECTOR",
+                "label" : "relationshipssupplier_companydatatype",
+                "nativeName" : "relationshipssupplier_companydatatype",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "relationshipscontract_typedataid",
+                "fieldType" : "CONNECTOR",
+                "label" : "relationshipscontract_typedataid",
+                "nativeName" : "relationshipscontract_typedataid",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "relationshipscontract_typedatatype",
+                "fieldType" : "CONNECTOR",
+                "label" : "relationshipscontract_typedatatype",
+                "nativeName" : "relationshipscontract_typedatatype",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "relationshipsattachmentsdata",
+                "fieldType" : "CONNECTOR",
+                "label" : "relationshipsattachmentsdata",
+                "nativeName" : "relationshipsattachmentsdata",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "relationshipsownerdataid",
+                "fieldType" : "CONNECTOR",
+                "label" : "relationshipsownerdataid",
+                "nativeName" : "relationshipsownerdataid",
+                "nativeType" : "float",
+                "original" : "false",
+                "precision" : 16,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "relationshipsownerdatatype",
+                "fieldType" : "CONNECTOR",
+                "label" : "relationshipsownerdatatype",
+                "nativeName" : "relationshipsownerdatatype",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "relationshipscreatordataid",
+                "fieldType" : "CONNECTOR",
+                "label" : "relationshipscreatordataid",
+                "nativeName" : "relationshipscreatordataid",
+                "nativeType" : "integer",
+                "original" : "false",
+                "precision" : 19,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "relationshipscreatordatatype",
+                "fieldType" : "CONNECTOR",
+                "label" : "relationshipscreatordatatype",
+                "nativeName" : "relationshipscreatordatatype",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "relationshipsdocusign_envelopesdata",
+                "fieldType" : "CONNECTOR",
+                "label" : "relationshipsdocusign_envelopesdata",
+                "nativeName" : "relationshipsdocusign_envelopesdata",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "linksself",
+                "fieldType" : "CONNECTOR",
+                "label" : "linksself",
+                "nativeName" : "linksself",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "attachment_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "attachment_id",
+                "nativeName" : "attachment_id",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "attachment_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "attachment_name",
+                "nativeName" : "attachment_name",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "Anaplan_Entity",
+                "fieldType" : "CONNECTOR",
+                "label" : "Anaplan_Entity",
+                "nativeName" : "Anaplan_Entity",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "Business_Category",
+                "fieldType" : "CONNECTOR",
+                "label" : "Business_Category",
+                "nativeName" : "Business_Category",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "is_tech_transaction",
+                "fieldType" : "CONNECTOR",
+                "label" : "is_tech_transaction",
+                "nativeName" : "is_tech_transaction",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "FedRAMP",
+                "fieldType" : "CONNECTOR",
+                "label" : "FedRAMP",
+                "nativeName" : "FedRAMP",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "Requester",
+                "fieldType" : "CONNECTOR",
+                "label" : "Requester",
+                "nativeName" : "Requester",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "BudgetedCostCenter",
+                "fieldType" : "CONNECTOR",
+                "label" : "BudgetedCostCenter",
+                "nativeName" : "BudgetedCostCenter",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "ServiceLocation",
+                "fieldType" : "CONNECTOR",
+                "label" : "ServiceLocation",
+                "nativeName" : "ServiceLocation",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "RogueSpend",
+                "fieldType" : "CONNECTOR",
+                "label" : "RogueSpend",
+                "nativeName" : "RogueSpend",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "ContractPaper",
+                "fieldType" : "CONNECTOR",
+                "label" : "ContractPaper",
+                "nativeName" : "ContractPaper",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "ContractType",
+                "fieldType" : "CONNECTOR",
+                "label" : "ContractType",
+                "nativeName" : "ContractType",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "CloudMarketplace",
+                "fieldType" : "CONNECTOR",
+                "label" : "CloudMarketplace",
+                "nativeName" : "CloudMarketplace",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "FinalSpend",
+                "fieldType" : "CONNECTOR",
+                "label" : "FinalSpend",
+                "nativeName" : "FinalSpend",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "SAVINGSCALCULATION",
+                "fieldType" : "CONNECTOR",
+                "label" : "SAVINGSCALCULATION",
+                "nativeName" : "SAVINGSCALCULATION",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "Currency",
+                "fieldType" : "CONNECTOR",
+                "label" : "Currency",
+                "nativeName" : "Currency",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "PaymentTerms",
+                "fieldType" : "CONNECTOR",
+                "label" : "PaymentTerms",
+                "nativeName" : "PaymentTerms",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "Negotiated_Payment_Terms",
+                "fieldType" : "CONNECTOR",
+                "label" : "Negotiated_Payment_Terms",
+                "nativeName" : "Negotiated_Payment_Terms",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "Contract_Start_Date",
+                "fieldType" : "CONNECTOR",
+                "label" : "Contract_Start_Date",
+                "nativeName" : "Contract_Start_Date",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "Contract_Period",
+                "fieldType" : "CONNECTOR",
+                "label" : "Contract_Period",
+                "nativeName" : "Contract_Period",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "Renewal",
+                "fieldType" : "CONNECTOR",
+                "label" : "Renewal",
+                "nativeName" : "Renewal",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "Auto_Renewal_cust",
+                "fieldType" : "CONNECTOR",
+                "label" : "Auto_Renewal_cust",
+                "nativeName" : "Auto_Renewal_cust",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "competitively_bid",
+                "fieldType" : "CONNECTOR",
+                "label" : "competitively_bid",
+                "nativeName" : "competitively_bid",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "TB_Preferred1",
+                "fieldType" : "CONNECTOR",
+                "label" : "TB_Preferred1",
+                "nativeName" : "TB_Preferred1",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "TB_Preferred2",
+                "fieldType" : "CONNECTOR",
+                "label" : "TB_Preferred2",
+                "nativeName" : "TB_Preferred2",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "bus_risks",
+                "fieldType" : "CONNECTOR",
+                "label" : "bus_risks",
+                "nativeName" : "bus_risks",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "notes",
+                "fieldType" : "CONNECTOR",
+                "label" : "notes",
+                "nativeName" : "notes",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "Sourcing_Owner_Attachments",
+                "fieldType" : "CONNECTOR",
+                "label" : "Sourcing_Owner_Attachments",
+                "nativeName" : "Sourcing_Owner_Attachments",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "READY_DOCUSIGN",
+                "fieldType" : "CONNECTOR",
+                "label" : "READY_DOCUSIGN",
+                "nativeName" : "READY_DOCUSIGN",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "WORKDAY_REQUISITION",
+                "fieldType" : "CONNECTOR",
+                "label" : "WORKDAY_REQUISITION",
+                "nativeName" : "WORKDAY_REQUISITION",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "wrk_purchase_order",
+                "fieldType" : "CONNECTOR",
+                "label" : "wrk_purchase_order",
+                "nativeName" : "wrk_purchase_order",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "nme_email_of_contact",
+                "fieldType" : "CONNECTOR",
+                "label" : "nme_email_of_contact",
+                "nativeName" : "nme_email_of_contact",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              },
+              {
+                "name" : "nme_email_of_signer",
+                "fieldType" : "CONNECTOR",
+                "label" : "nme_email_of_signer",
+                "nativeName" : "nme_email_of_signer",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_contracts_data"
+                  }
+                ]
+              }
+            ],
+            "objectAttributes" : [
+              {
+                "name" : "connectorType",
+                "value" : "Simple"
+              },
+              {
+                "name" : "originalDataSetId",
+                "value" : "scout"
+              },
+              {
+                "name" : "recordType",
+                "value" : "VIEW"
+              },
+              {
+                "name" : "isLegacySQLView",
+                "value" : "false"
+              },
+              {
+                "name" : "uniqueId",
+                "value" : "53c94205-a0d9-4e43-88f3-c66716c07b62"
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2025-04-30T03:01:41.265Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              },
+              {
+                "bulkRename" : "false",
+                "include" : "false",
+                "names" : [
+                  {
+                    "inputName" : "custom_fields"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "NO"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "Output Field Names"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "true",
+        "fieldMappingMode" : "BY_NAME",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "targetFieldsOrdered" : "false",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "dataAdapter" : {
+          "connectionId" : "saas:@2r36acBBAmIfo68YCiGyae",
+          "connectionName" : "EAI_File_Salesh",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "Contracts.csv",
+            "label" : "Contracts.csv",
+            "path" : "Contracts.csv",
+            "retainMetadata" : "false",
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerAndDataDelimiter" : 0,
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2026-08-11 15:33:17 IST"
+}
