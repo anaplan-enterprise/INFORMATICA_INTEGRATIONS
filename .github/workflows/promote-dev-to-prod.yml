@@ -1,19 +1,35 @@
 name: Promote Dev to Prod
 
-# Creates a promotion PR: backup prod → copy from dev → keyword replace → PR to prod.
-# Manager reviews the PR (compare / comment / reject / approve).
-# Auto-merge runs after approval via promote-auto-merge.yml.
+# Default: promote by Git tag (created after IICS check-in of a job + dependents).
+# Tag names: promote/<project>-<job-or-ticket>-<date>
+#
+# Flow: resolve tag change set → backup those files on prod → copy from tag →
+# keyword replace → PR for manager review.
 
 on:
   workflow_dispatch:
     inputs:
+      tag:
+        description: "Git tag on the IICS check-in commit (e.g. promote/WD_Coupa-JobA-20260811). Required when mode=tag."
+        required: false
+        type: string
+        default: ""
       path:
-        description: "Explore path to promote (e.g. Explore/IT_EAI or Explore/IT_EAI/WD_Coupa)"
+        description: "Explore scope filter (e.g. Explore/IT_EAI/WD_Coupa). Only files under this path from the tag are promoted."
         required: true
         type: string
         default: "Explore/IT_EAI"
+      mode:
+        description: "tag = promote files in the tagged commit (recommended). changed_only / full_path = legacy."
+        required: true
+        type: choice
+        options:
+          - tag
+          - changed_only
+          - full_path
+        default: tag
       dry_run:
-        description: "If true, only report keyword changes (no PR)"
+        description: "If true, only report change set / keywords (no PR)"
         required: false
         type: boolean
         default: false
@@ -30,16 +46,24 @@ jobs:
   promote:
     runs-on: ubuntu-latest
     steps:
-      - name: Validate path
+      - name: Validate inputs
         run: |
           PATH_IN="${{ inputs.path }}"
+          MODE="${{ inputs.mode }}"
+          TAG_IN="${{ inputs.tag }}"
           if [[ "$PATH_IN" != Explore/* ]]; then
             echo "::error::path must start with Explore/"
+            exit 1
+          fi
+          if [[ "$MODE" == "tag" && -z "$TAG_IN" ]]; then
+            echo "::error::mode=tag requires input 'tag' (e.g. promote/WD_Coupa-JobA-20260811)"
             exit 1
           fi
           TOP="$(echo "$PATH_IN" | cut -d/ -f2)"
           echo "TOP_FOLDER=$TOP" >> "$GITHUB_ENV"
           echo "PROMOTE_PATH=$PATH_IN" >> "$GITHUB_ENV"
+          echo "PROMOTE_MODE=$MODE" >> "$GITHUB_ENV"
+          echo "PROMOTE_TAG=$TAG_IN" >> "$GITHUB_ENV"
 
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -62,88 +86,168 @@ jobs:
             exit 1
           fi
 
-      - name: Backup promoted path only (not entire prod)
+      - name: Build change set
+        id: changeset
+        run: |
+          chmod +x scripts/list_changeset.sh scripts/list_changeset_from_tag.sh scripts/backup_changeset.sh scripts/backup_prod.sh
+          mkdir -p "$RUNNER_TEMP"
+          LIST="$RUNNER_TEMP/changeset.txt"
+          SOURCE_REF=""
+
+          if [[ "$PROMOTE_MODE" == "tag" ]]; then
+            set +e
+            OUT="$(scripts/list_changeset_from_tag.sh "$PROMOTE_TAG" "$PROMOTE_PATH" "$LIST")"
+            STATUS=$?
+            set -e
+            echo "$OUT"
+            if [[ $STATUS -ne 0 ]]; then
+              echo "::error::Could not build change set from tag $PROMOTE_TAG"
+              exit 1
+            fi
+            SOURCE_REF="$(echo "$OUT" | awk -F= '/^CHANGESET_TAG_SHA=/{print $2}')"
+            if [[ -z "$SOURCE_REF" ]]; then
+              SOURCE_REF="$PROMOTE_TAG"
+            fi
+          elif [[ "$PROMOTE_MODE" == "full_path" ]]; then
+            git fetch origin "${{ env.DEV_BRANCH }}"
+            git ls-tree -r --name-only "origin/${{ env.DEV_BRANCH }}" -- "$PROMOTE_PATH" > "$LIST"
+            SOURCE_REF="origin/${{ env.DEV_BRANCH }}"
+          else
+            set +e
+            OUT="$(DEV_BRANCH=${{ env.DEV_BRANCH }} PROD_BRANCH=${{ env.PROD_BRANCH }} scripts/list_changeset.sh "$PROMOTE_PATH" "$LIST")"
+            STATUS=$?
+            set -e
+            echo "$OUT"
+            if [[ $STATUS -ne 0 ]]; then
+              echo "::error::No change set under $PROMOTE_PATH"
+              exit 1
+            fi
+            SOURCE_REF="origin/${{ env.DEV_BRANCH }}"
+          fi
+
+          COUNT="$(wc -l < "$LIST" | tr -d ' ')"
+          if [[ "$COUNT" -eq 0 ]]; then
+            echo "::error::Empty change set"
+            exit 1
+          fi
+          echo "file=$LIST" >> "$GITHUB_OUTPUT"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "source_ref=$SOURCE_REF" >> "$GITHUB_OUTPUT"
+          echo "Change set ($COUNT files) from $SOURCE_REF:"
+          cat "$LIST"
+
+      - name: Backup change-set files on prod only
         id: backup
         run: |
-          chmod +x scripts/backup_prod.sh
           set +e
-          OUT="$(PROD_BRANCH=${{ env.PROD_BRANCH }} scripts/backup_prod.sh "$PROMOTE_PATH")"
+          OUT="$(PROD_BRANCH=${{ env.PROD_BRANCH }} scripts/backup_changeset.sh "${{ steps.changeset.outputs.file }}")"
           STATUS=$?
           set -e
           echo "$OUT"
-          BPATH="$(echo "$OUT" | awk -F= '/^BACKUP_PATH=/{print $2}')"
           DIR="$(echo "$OUT" | awk -F= '/^BACKUP_DIR=/{print $2}')"
-          echo "path=$BPATH" >> "$GITHUB_OUTPUT"
           echo "dir=$DIR" >> "$GITHUB_OUTPUT"
+          echo "path=changeset" >> "$GITHUB_OUTPUT"
           if [[ $STATUS -ne 0 ]]; then
-            echo "::warning::Backup script exited $STATUS — continuing (first promote may have no prod yet)"
+            echo "::warning::Backup exited $STATUS — continuing"
           fi
-          # Commit path-only backup under backups/
           if [[ -n "$DIR" && -d "$DIR" ]]; then
             git config user.name "iics-promote-bot"
             git config user.email "iics-promote-bot@users.noreply.github.com"
+            git checkout -B "${{ env.DEV_BRANCH }}" "origin/${{ env.DEV_BRANCH }}" 2>/dev/null \
+              || git checkout "${{ env.DEV_BRANCH }}"
             git add "backups" || true
-            git commit -m "chore: path-only prod backup for ${PROMOTE_PATH} (${DIR})" || true
+            TAG_NOTE="${PROMOTE_TAG:-none}"
+            git commit -m "chore: change-set prod backup for ${PROMOTE_PATH} tag=${TAG_NOTE} (${DIR})" || true
             git push origin "HEAD:${{ env.DEV_BRANCH }}" || true
           fi
 
       - name: Create promote branch from prod
         run: |
           TS="$(date -u +%Y%m%dT%H%M%SZ)"
-          SAFE_PATH="$(echo "$PROMOTE_PATH" | tr '/' '-')"
-          BRANCH="promote/${SAFE_PATH}-${TS}"
+          if [[ -n "$PROMOTE_TAG" ]]; then
+            SAFE_TAG="$(echo "$PROMOTE_TAG" | tr '/' '-')"
+            BRANCH="promote/${SAFE_TAG}-${TS}"
+          else
+            SAFE_PATH="$(echo "$PROMOTE_PATH" | tr '/' '-')"
+            BRANCH="promote/${SAFE_PATH}-${TS}"
+          fi
           echo "PROMOTE_BRANCH=$BRANCH" >> "$GITHUB_ENV"
 
           git fetch origin "${{ env.PROD_BRANCH }}" || true
+          git fetch origin "${{ env.DEV_BRANCH }}" || true
+          git fetch origin --tags --force || true
           if git rev-parse --verify "origin/${{ env.PROD_BRANCH }}" >/dev/null 2>&1; then
             git checkout -B "$BRANCH" "origin/${{ env.PROD_BRANCH }}"
           else
             git checkout -B "$BRANCH" "origin/${{ env.DEV_BRANCH }}"
-            # empty prod baseline: keep only backups + config + scripts scaffolding
             git rm -rf Explore 2>/dev/null || true
             git checkout "origin/${{ env.DEV_BRANCH }}" -- config scripts .github || true
           fi
 
-      - name: Sync path from dev
+      - name: Sync change-set files from tag/source
         run: |
-          git fetch origin "${{ env.DEV_BRANCH }}"
-          # Replace target path with Dev version
-          rm -rf "$PROMOTE_PATH"
-          git checkout "origin/${{ env.DEV_BRANCH }}" -- "$PROMOTE_PATH"
+          LIST="${{ steps.changeset.outputs.file }}"
+          SRC="${{ steps.changeset.outputs.source_ref }}"
+          while IFS= read -r f || [[ -n "$f" ]]; do
+            [[ -z "$f" ]] && continue
+            if git cat-file -e "${SRC}:${f}" 2>/dev/null; then
+              mkdir -p "$(dirname "$f")"
+              git checkout "$SRC" -- "$f"
+            else
+              if [[ -e "$f" ]]; then
+                git rm -rf "$f" || rm -rf "$f"
+              fi
+            fi
+          done < "$LIST"
 
-      - name: Apply keyword replacements
+      - name: Apply keyword replacements (change set only)
         id: replace
         run: |
           chmod +x scripts/replace_keywords.py
-          ARGS=(--path "$PROMOTE_PATH" --report "$RUNNER_TEMP/replace-report.json")
+          ARGS=(
+            --path "$PROMOTE_PATH"
+            --files-from "${{ steps.changeset.outputs.file }}"
+            --report "$RUNNER_TEMP/replace-report.json"
+          )
           if [[ "${{ inputs.dry_run }}" == "true" ]]; then
             ARGS+=(--dry-run)
           fi
           python scripts/replace_keywords.py "${ARGS[@]}"
           echo "report=$RUNNER_TEMP/replace-report.json" >> "$GITHUB_OUTPUT"
 
-      - name: Upload replacement report
+      - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
-          name: keyword-replace-report
-          path: ${{ steps.replace.outputs.report }}
+          name: promote-reports
+          path: |
+            ${{ steps.changeset.outputs.file }}
+            ${{ steps.replace.outputs.report }}
 
       - name: Stop on dry run
         if: inputs.dry_run == true
         run: |
-          echo "Dry run complete — no PR created."
+          echo "Dry run — tag=${PROMOTE_TAG:-n/a} mode=${PROMOTE_MODE} files=${{ steps.changeset.outputs.count }}"
+          cat "${{ steps.changeset.outputs.file }}"
+          echo "--- keyword report ---"
           cat "${{ steps.replace.outputs.report }}"
 
-      - name: Commit transformed assets
+      - name: Commit transformed change set
         if: inputs.dry_run == false
         run: |
           git config user.name "iics-promote-bot"
           git config user.email "iics-promote-bot@users.noreply.github.com"
-          git add -A "$PROMOTE_PATH"
+          while IFS= read -r f || [[ -n "$f" ]]; do
+            [[ -z "$f" ]] && continue
+            if [[ -e "$f" ]]; then
+              git add -A "$f"
+            else
+              git add -u -- "$f" 2>/dev/null || true
+            fi
+          done < "${{ steps.changeset.outputs.file }}"
           if git diff --cached --quiet; then
             echo "::warning::No file changes after sync+replace (prod already matches?)"
           else
-            git commit -m "promote: ${PROMOTE_PATH} (keywords from ${TOP_FOLDER}.yml)"
+            git commit -m "promote tag=${PROMOTE_TAG:-n/a} scope=${PROMOTE_PATH} (${{ steps.changeset.outputs.count }} files, ${TOP_FOLDER}.yml)"
           fi
           git push -u origin "$PROMOTE_BRANCH"
 
@@ -152,32 +256,34 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TITLE="Promote ${PROMOTE_PATH} → prod"
+          TITLE="Promote ${PROMOTE_TAG:-$PROMOTE_PATH} → prod (${{ steps.changeset.outputs.count }} files)"
           BODY="$(cat <<EOF
           ## Summary
-          - **Path:** \`${PROMOTE_PATH}\`
-          - **Keyword map:** \`config/keyword-maps/${TOP_FOLDER}.yml\` (applies to all projects under \`Explore/${TOP_FOLDER}/\`)
-          - **Source:** \`${{ env.DEV_BRANCH }}\` (IICS Dev)
-          - **Target:** \`${{ env.PROD_BRANCH }}\` (IICS Prod)
-          - **Path-only backup:** \`${{ steps.backup.outputs.dir }}\` (only \`${{ steps.backup.outputs.path }}\`, not entire prod)
+          - **Tag:** \`${PROMOTE_TAG:-n/a}\`
+          - **Scope:** \`${PROMOTE_PATH}\`
+          - **Mode:** \`${PROMOTE_MODE}\`
+          - **Files in change set:** ${{ steps.changeset.outputs.count }}
+          - **Source ref:** \`${{ steps.changeset.outputs.source_ref }}\`
+          - **Keyword map:** \`config/keyword-maps/${TOP_FOLDER}.yml\`
+          - **Target:** \`${{ env.PROD_BRANCH }}\`
+          - **Backup:** \`${{ steps.backup.outputs.dir }}\`
+
+          Change set = files changed **in the tagged IICS check-in commit** under the scope (job + dependents from that push). Other jobs on \`prod\` are left unchanged.
 
           ## Manager actions
-          1. Review the **Files changed** tab (Dev→Prod keyword diffs + functional changes)
-          2. **Approve** to allow auto-merge to \`${{ env.PROD_BRANCH }}\`
-          3. Or **Request changes** / comment to reject
+          1. Review **Files changed**
+          2. **Approve** / **Request changes** / comment
+          3. Merge manually while \`auto_merge_to_prod: false\`
 
-          After merge, pull this branch into IICS **Prod** using the native Git integration.
+          After merge, pull \`prod\` in IICS **Prod**.
 
-          ## Rollback (this project/path only)
+          ## Rollback
           \`\`\`bash
           scripts/rollback_prod.sh ${{ steps.backup.outputs.dir }}
-          # or
-          scripts/rollback_prod.sh $(basename ${{ steps.backup.outputs.dir }}) ${PROMOTE_PATH}
           \`\`\`
           EOF
           )"
 
-          # Avoid duplicate open PRs for same head
           EXISTING="$(gh pr list --head "$PROMOTE_BRANCH" --state open --json number --jq '.[0].number')"
           if [[ -n "$EXISTING" ]]; then
             echo "PR already open: #$EXISTING"
