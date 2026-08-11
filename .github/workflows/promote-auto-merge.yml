@@ -1,0 +1,77 @@
+name: Auto-merge approved promote PRs
+
+# When a manager approves a promote/* PR targeting prod, merge it automatically —
+# only if config/promotion.yml has auto_merge_to_prod: true.
+# Requires: branch protection on prod with required approving reviews.
+
+on:
+  pull_request_review:
+    types: [submitted]
+  pull_request:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    if: >
+      github.event.pull_request.base.ref == 'prod' &&
+      startsWith(github.event.pull_request.head.ref, 'promote/') &&
+      (
+        (github.event_name == 'pull_request_review' && github.event.review.state == 'approved') ||
+        (github.event_name == 'pull_request' && github.event.action == 'labeled' && github.event.label.name == 'auto-merge')
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check auto-merge switch
+        id: gate
+        run: |
+          ENABLED="$(python3 - <<'PY'
+          import pathlib
+          try:
+              import yaml
+          except ImportError:
+              import subprocess, sys
+              subprocess.check_call([sys.executable, "-m", "pip", "install", "pyyaml", "-q"])
+              import yaml
+          path = pathlib.Path("config/promotion.yml")
+          data = yaml.safe_load(path.read_text()) if path.is_file() else {}
+          print("true" if data.get("auto_merge_to_prod", True) else "false")
+          PY
+          )"
+          echo "enabled=$ENABLED" >> "$GITHUB_OUTPUT"
+          if [[ "$ENABLED" != "true" ]]; then
+            echo "auto_merge_to_prod is false — skipping merge. Merge the PR manually when ready."
+          fi
+
+      - name: Comment when auto-merge is off
+        if: steps.gate.outputs.enabled != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR="${{ github.event.pull_request.number }}"
+          gh pr comment "$PR" --body "Manager approval recorded, but **auto-merge is disabled** (\`config/promotion.yml\` → \`auto_merge_to_prod: false\`). Merge this PR manually when ready for production."
+
+      - name: Merge PR into prod
+        if: steps.gate.outputs.enabled == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR="${{ github.event.pull_request.number }}"
+          # Prefer squash for cleaner prod history; change to --merge if preferred
+          gh pr merge "$PR" --squash --delete-branch --auto || \
+          gh pr merge "$PR" --squash --delete-branch
+
+      - name: Comment merge result
+        if: always() && steps.gate.outputs.enabled == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR="${{ github.event.pull_request.number }}"
+          STATE="$(gh pr view "$PR" --json state,mergedAt --jq '{state,mergedAt}')"
+          gh pr comment "$PR" --body "Auto-merge attempt finished. PR state: \`${STATE}\`. IICS **Prod** can now pull from \`prod\`."
