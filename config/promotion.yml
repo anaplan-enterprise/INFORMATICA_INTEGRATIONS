@@ -1,0 +1,8 @@
+# Promotion settings for INFORMATICA_INTEGRATIONS
+#
+# auto_merge_to_prod:
+#   true  — after a manager approves a promote/* PR to prod, merge automatically
+#   false — approval only; someone must merge the PR manually (or add label "auto-merge"
+#           only if you also turn this back on)
+
+auto_merge_to_prod: false
