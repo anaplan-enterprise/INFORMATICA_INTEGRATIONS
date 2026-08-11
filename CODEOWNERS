@@ -1,0 +1,8 @@
+# Managers who must approve promotions into prod.
+# Enable "Require review from Code Owners" on the prod branch.
+# Emails must match the GitHub accounts linked to these addresses.
+
+* sailesh.kumaryadav@anaplan.com bijesh.balakrishnan@anaplan.com
+
+Explore/IT_EAI/** sailesh.kumaryadav@anaplan.com bijesh.balakrishnan@anaplan.com
+config/keyword-maps/IT_EAI.yml sailesh.kumaryadav@anaplan.com bijesh.balakrishnan@anaplan.com
