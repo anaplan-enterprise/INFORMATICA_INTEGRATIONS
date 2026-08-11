@@ -1,0 +1,197 @@
+name: Promote Dev to Prod
+
+# Creates a promotion PR: backup prod → copy from dev → keyword replace → PR to prod.
+# Manager reviews the PR (compare / comment / reject / approve).
+# Auto-merge runs after approval via promote-auto-merge.yml.
+
+on:
+  workflow_dispatch:
+    inputs:
+      path:
+        description: "Explore path to promote (e.g. Explore/IT_EAI or Explore/IT_EAI/WD_Coupa)"
+        required: true
+        type: string
+        default: "Explore/IT_EAI"
+      dry_run:
+        description: "If true, only report keyword changes (no PR)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  DEV_BRANCH: dev
+  PROD_BRANCH: prod
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate path
+        run: |
+          PATH_IN="${{ inputs.path }}"
+          if [[ "$PATH_IN" != Explore/* ]]; then
+            echo "::error::path must start with Explore/"
+            exit 1
+          fi
+          TOP="$(echo "$PATH_IN" | cut -d/ -f2)"
+          echo "TOP_FOLDER=$TOP" >> "$GITHUB_ENV"
+          echo "PROMOTE_PATH=$PATH_IN" >> "$GITHUB_ENV"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install pyyaml
+
+      - name: Ensure keyword map exists
+        run: |
+          MAP="config/keyword-maps/${TOP_FOLDER}.yml"
+          if [[ ! -f "$MAP" ]]; then
+            echo "::error::Missing $MAP — create a keyword map for Explore/${TOP_FOLDER}/"
+            exit 1
+          fi
+
+      - name: Backup promoted path only (not entire prod)
+        id: backup
+        run: |
+          chmod +x scripts/backup_prod.sh
+          set +e
+          OUT="$(PROD_BRANCH=${{ env.PROD_BRANCH }} scripts/backup_prod.sh "$PROMOTE_PATH")"
+          STATUS=$?
+          set -e
+          echo "$OUT"
+          BPATH="$(echo "$OUT" | awk -F= '/^BACKUP_PATH=/{print $2}')"
+          DIR="$(echo "$OUT" | awk -F= '/^BACKUP_DIR=/{print $2}')"
+          echo "path=$BPATH" >> "$GITHUB_OUTPUT"
+          echo "dir=$DIR" >> "$GITHUB_OUTPUT"
+          if [[ $STATUS -ne 0 ]]; then
+            echo "::warning::Backup script exited $STATUS — continuing (first promote may have no prod yet)"
+          fi
+          # Commit path-only backup under backups/
+          if [[ -n "$DIR" && -d "$DIR" ]]; then
+            git config user.name "iics-promote-bot"
+            git config user.email "iics-promote-bot@users.noreply.github.com"
+            git add "backups" || true
+            git commit -m "chore: path-only prod backup for ${PROMOTE_PATH} (${DIR})" || true
+            git push origin "HEAD:${{ env.DEV_BRANCH }}" || true
+          fi
+
+      - name: Create promote branch from prod
+        run: |
+          TS="$(date -u +%Y%m%dT%H%M%SZ)"
+          SAFE_PATH="$(echo "$PROMOTE_PATH" | tr '/' '-')"
+          BRANCH="promote/${SAFE_PATH}-${TS}"
+          echo "PROMOTE_BRANCH=$BRANCH" >> "$GITHUB_ENV"
+
+          git fetch origin "${{ env.PROD_BRANCH }}" || true
+          if git rev-parse --verify "origin/${{ env.PROD_BRANCH }}" >/dev/null 2>&1; then
+            git checkout -B "$BRANCH" "origin/${{ env.PROD_BRANCH }}"
+          else
+            git checkout -B "$BRANCH" "origin/${{ env.DEV_BRANCH }}"
+            # empty prod baseline: keep only backups + config + scripts scaffolding
+            git rm -rf Explore 2>/dev/null || true
+            git checkout "origin/${{ env.DEV_BRANCH }}" -- config scripts .github || true
+          fi
+
+      - name: Sync path from dev
+        run: |
+          git fetch origin "${{ env.DEV_BRANCH }}"
+          # Replace target path with Dev version
+          rm -rf "$PROMOTE_PATH"
+          git checkout "origin/${{ env.DEV_BRANCH }}" -- "$PROMOTE_PATH"
+
+      - name: Apply keyword replacements
+        id: replace
+        run: |
+          chmod +x scripts/replace_keywords.py
+          ARGS=(--path "$PROMOTE_PATH" --report "$RUNNER_TEMP/replace-report.json")
+          if [[ "${{ inputs.dry_run }}" == "true" ]]; then
+            ARGS+=(--dry-run)
+          fi
+          python scripts/replace_keywords.py "${ARGS[@]}"
+          echo "report=$RUNNER_TEMP/replace-report.json" >> "$GITHUB_OUTPUT"
+
+      - name: Upload replacement report
+        uses: actions/upload-artifact@v4
+        with:
+          name: keyword-replace-report
+          path: ${{ steps.replace.outputs.report }}
+
+      - name: Stop on dry run
+        if: inputs.dry_run == true
+        run: |
+          echo "Dry run complete — no PR created."
+          cat "${{ steps.replace.outputs.report }}"
+
+      - name: Commit transformed assets
+        if: inputs.dry_run == false
+        run: |
+          git config user.name "iics-promote-bot"
+          git config user.email "iics-promote-bot@users.noreply.github.com"
+          git add -A "$PROMOTE_PATH"
+          if git diff --cached --quiet; then
+            echo "::warning::No file changes after sync+replace (prod already matches?)"
+          else
+            git commit -m "promote: ${PROMOTE_PATH} (keywords from ${TOP_FOLDER}.yml)"
+          fi
+          git push -u origin "$PROMOTE_BRANCH"
+
+      - name: Open promotion PR for manager review
+        if: inputs.dry_run == false
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="Promote ${PROMOTE_PATH} → prod"
+          BODY="$(cat <<EOF
+          ## Summary
+          - **Path:** \`${PROMOTE_PATH}\`
+          - **Keyword map:** \`config/keyword-maps/${TOP_FOLDER}.yml\` (applies to all projects under \`Explore/${TOP_FOLDER}/\`)
+          - **Source:** \`${{ env.DEV_BRANCH }}\` (IICS Dev)
+          - **Target:** \`${{ env.PROD_BRANCH }}\` (IICS Prod)
+          - **Path-only backup:** \`${{ steps.backup.outputs.dir }}\` (only \`${{ steps.backup.outputs.path }}\`, not entire prod)
+
+          ## Manager actions
+          1. Review the **Files changed** tab (Dev→Prod keyword diffs + functional changes)
+          2. **Approve** to allow auto-merge to \`${{ env.PROD_BRANCH }}\`
+          3. Or **Request changes** / comment to reject
+
+          After merge, pull this branch into IICS **Prod** using the native Git integration.
+
+          ## Rollback (this project/path only)
+          \`\`\`bash
+          scripts/rollback_prod.sh ${{ steps.backup.outputs.dir }}
+          # or
+          scripts/rollback_prod.sh $(basename ${{ steps.backup.outputs.dir }}) ${PROMOTE_PATH}
+          \`\`\`
+          EOF
+          )"
+
+          # Avoid duplicate open PRs for same head
+          EXISTING="$(gh pr list --head "$PROMOTE_BRANCH" --state open --json number --jq '.[0].number')"
+          if [[ -n "$EXISTING" ]]; then
+            echo "PR already open: #$EXISTING"
+            exit 0
+          fi
+
+          gh pr create \
+            --base "${{ env.PROD_BRANCH }}" \
+            --head "$PROMOTE_BRANCH" \
+            --title "$TITLE" \
+            --body "$BODY" \
+            --label "promote" || \
+          gh pr create \
+            --base "${{ env.PROD_BRANCH }}" \
+            --head "$PROMOTE_BRANCH" \
+            --title "$TITLE" \
+            --body "$BODY"
