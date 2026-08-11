@@ -1,0 +1,160 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>H2HBxZmtK9hCHbf-gt-9680826-2026-05-20T17:30:16.537Z::tf.xml</types1:EntryId>
+      <types1:Name>EAI_tf_OneTrust_Supplier_Upsert</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>sailesh.kumaryadav@anaplan.com.SAML</types1:CreatedBy>
+      <types1:CreationDate>2026-05-20T17:30:17Z</types1:CreationDate>
+      <types1:ModifiedBy>sailesh.kumaryadav@anaplan.com.SAML</types1:ModifiedBy>
+      <types1:ModificationDate>2026-05-20T17:34:53Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>sailesh.kumaryadav@anaplan.com.SAML</types1:PublishedBy>
+      <types1:PublicationDate>2026-05-20T17:35:05Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/tf.EAI_tf_OneTrust_Supplier_Upsert/EAI_tf_OneTrust_Supplier_Upsert.tf.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   GUID="8rXdgUnMgRwkFUgcnVMlAs"
+                   displayName="EAI_tf_OneTrust_Supplier_Upsert"
+                   name="EAI_tf_OneTrust_Supplier_Upsert"
+                   overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description=""
+                      name="call_OneTrust_Supplier_Upsert"
+                      type="reference">
+                  <options>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                     <option name="failOnNotRun">true</option>
+                     <option name="failOnFault">true</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest/>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">false</nvpair>
+            </extData>
+            <flow id="a">
+               <start id="b">
+                  <link id="mpec1hol" targetId="mpec1hph"/>
+               </start>
+               <eventContainer id="mpec1hph">
+                  <service id="mpec1hok">
+                     <title>call_OneTrust_Supplier_Upsert</title>
+                     <serviceName>ICSExecuteCommandTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Task Name" source="constant">call_OneTrust_Supplier_Upsert</parameter>
+                        <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                        <parameter name="Runtime Environment" source="constant">001RBH25000000000008:LO_Agent</parameter>
+                        <parameter name="Max Wait" source="constant">86400</parameter>
+                        <parameter name="Script Name" source="constant"/>
+                        <parameter name="Input Arguments" source="constant"/>
+                        <parameter name="Work Directory" source="constant"/>
+                        <parameter name="RuntimeEnvGUID" source="constant">2fNCWYqpjuUfk2iImWfCuo</parameter>
+                        <parameter name="FailTaskIfAnyScriptFails" source="constant">true</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="INFA-commandTask">temp.call_OneTrust_Supplier_Upsert</operation>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">Script1</operation>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">D:\IT_EAI\Projects\OneTrust\Scripts\OneTrust_Supplier_Upsert.bat</operation>
+                           <operation source="constant"
+                                      to="INFA-commandTask/input[1]/script-1/inputArguments"/>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.call_OneTrust_Supplier_Upsert/output/Run_Id">Run Id</operation>
+                        <operation source="field"
+                                   to="temp.call_OneTrust_Supplier_Upsert/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.call_OneTrust_Supplier_Upsert/output/End_Time">End Time</operation>
+                        <operation source="field" to="temp.call_OneTrust_Supplier_Upsert/output/Exit_Code">Exit Code</operation>
+                        <operation source="field"
+                                   to="temp.call_OneTrust_Supplier_Upsert/output/Execution_Status">Execution Status</operation>
+                        <operation source="field" to="temp.call_OneTrust_Supplier_Upsert/output/Std_Error">Std Error</operation>
+                     </serviceOutput>
+                  </service>
+                  <flow id="mpec1hqb">
+                     <link id="mpec1hqc" targetId="mpec1hph" type="containerLink"/>
+                  </flow>
+                  <flow id="mpec1hqe">
+                     <eventContainer id="mpec1hr5">
+                        <service id="mpec1hqq">
+                           <title>Notification Task 1</title>
+                           <serviceName>emailNotificationService</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Email To" source="constant">it_integrations@anaplan.com</parameter>
+                              <parameter name="Email Cc" source="constant"/>
+                              <parameter name="Email Bcc" source="constant"/>
+                              <parameter name="Email Subject" source="constant">OneTrust : Supplier Job Failed to load</parameter>
+                              <parameter name="Email Content Type" source="constant">text</parameter>
+                              <parameter name="Email Body" source="constant"/>
+                           </serviceInput>
+                           <serviceOutput/>
+                        </service>
+                        <events>
+                           <catch faultField="temp.dummyTF5895/fault"
+                                  id="mpec1hqn"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <link id="mpec1hqf" targetId="mpec1hph" type="containerLink"/>
+                  </flow>
+                  <link id="mpec1hqa" targetId="mpec1hqb" type="containerLink"/>
+                  <link id="mpec1hom" targetId="c"/>
+                  <events>
+                     <catch faultField="temp.call_OneTrust_Supplier_Upsert/fault"
+                            id="mpec1hpg"
+                            interrupting="true"
+                            name="error">
+                        <link id="mpec1hqd" targetId="mpec1hqe" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="INFA-commandTask"
+                              isByCopy="true"
+                              name="INFA-commandTask">
+                  <description>This process object represents a taskflow specific command task output field details.</description>
+                  <tags/>
+                  <detail>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>8rXdgUnMgRwkFUgcnVMlAs</types1:GUID>
+      <types1:DisplayName>EAI_tf_OneTrust_Supplier_Upsert</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2026-08-11T08:58:54.051Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
