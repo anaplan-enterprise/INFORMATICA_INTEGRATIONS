@@ -1,0 +1,1483 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "EAI_m_InsertDump",
+    "specialCharacterSupport" : "false",
+    "links" : [
+      {
+        "link" : "Source -> Target"
+      }
+    ],
+    "transformations" : [
+      {
+        "augmented" : "false",
+        "createTime" : "2023-08-04T16:46:44.034Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Employee_id"
+            },
+            "name" : "Employee_id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "legal_name_first_name"
+            },
+            "name" : "legal_name_first_name",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "legal_name_middle_name"
+            },
+            "name" : "legal_name_middle_name",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "legal_name_last_name"
+            },
+            "name" : "legal_name_last_name",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "dob"
+            },
+            "name" : "dob",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "age"
+            },
+            "name" : "age",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "gender"
+            },
+            "name" : "gender",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "designation"
+            },
+            "name" : "designation",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "hire_date"
+            },
+            "name" : "hire_date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "salary"
+            },
+            "name" : "salary",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "emailid"
+            },
+            "name" : "emailid",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "termination_date1"
+            },
+            "name" : "termination_date1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "termination_reason1"
+            },
+            "name" : "termination_reason1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "load_Dt"
+            },
+            "name" : "load_Dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@1QZ0JuXB8arehMGjkeINOC",
+          "connectionName" : "EAI_GCP_GBQ_INFA_v2",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "outbound/vw_prudent_employee_dump",
+            "label" : "vw_prudent_employee_dump",
+            "objectName" : "vw_prudent_employee_dump",
+            "path" : "outbound/vw_prudent_employee_dump",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Employee_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Employee_id",
+                "nativeName" : "Employee_id",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "legal_name_first_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "legal_name_first_name",
+                "nativeName" : "legal_name_first_name",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "legal_name_middle_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "legal_name_middle_name",
+                "nativeName" : "legal_name_middle_name",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "legal_name_last_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "legal_name_last_name",
+                "nativeName" : "legal_name_last_name",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "dob",
+                "fieldType" : "CONNECTOR",
+                "label" : "dob",
+                "nativeName" : "dob",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "age",
+                "fieldType" : "CONNECTOR",
+                "label" : "age",
+                "nativeName" : "age",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "gender",
+                "fieldType" : "CONNECTOR",
+                "label" : "gender",
+                "nativeName" : "gender",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "designation",
+                "fieldType" : "CONNECTOR",
+                "label" : "designation",
+                "nativeName" : "designation",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "hire_date",
+                "fieldType" : "CONNECTOR",
+                "label" : "hire_date",
+                "nativeName" : "hire_date",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "salary",
+                "fieldType" : "CONNECTOR",
+                "label" : "salary",
+                "nativeName" : "salary",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "emailid",
+                "fieldType" : "CONNECTOR",
+                "label" : "emailid",
+                "nativeName" : "emailid",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "termination_date1",
+                "fieldType" : "CONNECTOR",
+                "label" : "termination_date1",
+                "nativeName" : "termination_date1",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "termination_reason1",
+                "fieldType" : "CONNECTOR",
+                "label" : "termination_reason1",
+                "nativeName" : "termination_reason1",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              },
+              {
+                "name" : "load_Dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "load_Dt",
+                "nativeName" : "load_Dt",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_dump"
+                  }
+                ]
+              }
+            ],
+            "objectAttributes" : [
+              {
+                "name" : "connectorType",
+                "value" : "Simple"
+              },
+              {
+                "name" : "originalDataSetId",
+                "value" : "outbound"
+              },
+              {
+                "name" : "recordType",
+                "value" : "VIEW"
+              },
+              {
+                "name" : "uniqueId",
+                "value" : "33a506d5-d1f8-4ef5-b50c-11aeeee3c3e5"
+              },
+              {
+                "name" : "isLegacySQLView",
+                "value" : "false"
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          },
+          "runtimeAttributes" : {
+            "attributes" : [
+              {
+                "name" : "Number of Rows to Read",
+                "value" : "0"
+              },
+              {
+                "name" : "Allow Large Results",
+                "value" : "NO"
+              },
+              {
+                "name" : "Job Poll Interval In Seconds",
+                "value" : "10"
+              },
+              {
+                "name" : "Read Mode",
+                "value" : "Direct"
+              },
+              {
+                "name" : "Use EXPORT DATA statement to stage",
+                "value" : "NO"
+              },
+              {
+                "name" : "Number of Threads for Downloading Staging Files",
+                "value" : "1"
+              },
+              {
+                "name" : "Data format of the staging file",
+                "value" : "JSON (Newline Delimited)"
+              },
+              {
+                "name" : "Enable Staging File Compression",
+                "value" : "YES"
+              },
+              {
+                "name" : "Persist Extract Staging File After Download",
+                "value" : "NO"
+              },
+              {
+                "name" : "Persist Destination Table",
+                "value" : "NO"
+              },
+              {
+                "name" : "pre SQL",
+                "value" : "delete from workday.wd_worker_data_src_prudent where load_dt=(\nselect     CASE \n      WHEN EXTRACT(DAY FROM CURRENT_DATE()) <= 15 \n        THEN DATE_ADD(LAST_DAY(DATE_SUB(CURRENT_DATE(), INTERVAL 1 MONTH)), INTERVAL 1 DAY)\n      ELSE \n        DATE_ADD(DATE_TRUNC(CURRENT_DATE(), MONTH), INTERVAL 15 DAY)\n    END \n)"
+              },
+              {
+                "name" : "Use Legacy SQL For SQL Override",
+                "value" : "YES"
+              },
+              {
+                "name" : "Number of Spark Partitions",
+                "value" : "1"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2023-08-04T16:46:44.034Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "MANUAL",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "targetFieldsOrdered" : "false",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Employee_id"
+            },
+            "name" : "Employee_id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "legal_name_first_name"
+            },
+            "name" : "legal_name_first_name",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "legal_name_middle_name"
+            },
+            "name" : "legal_name_middle_name",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "legal_name_last_name"
+            },
+            "name" : "legal_name_last_name",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "dob"
+            },
+            "name" : "dob",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "age"
+            },
+            "name" : "age",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "gender"
+            },
+            "name" : "gender",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "designation"
+            },
+            "name" : "designation",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "hire_date"
+            },
+            "name" : "hire_date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "salary"
+            },
+            "name" : "salary",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "emailid"
+            },
+            "name" : "emailid",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "termination_date1"
+            },
+            "name" : "termination_date1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "termination_reason1"
+            },
+            "name" : "termination_reason1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "load_dt"
+            },
+            "name" : "load_dt",
+            "platformType" : {
+              "name" : "date/time"
+            },
+            "precision" : 29,
+            "scale" : 9
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@1QZ0JuXB8arehMGjkeINOC",
+          "connectionName" : "EAI_GCP_GBQ_INFA_v2",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "workday/wd_worker_data_src_prudent",
+            "label" : "wd_worker_data_src_prudent",
+            "objectName" : "wd_worker_data_src_prudent",
+            "path" : "workday/wd_worker_data_src_prudent",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Employee_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "Employee_id",
+                "nativeName" : "Employee_id",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "legal_name_first_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "legal_name_first_name",
+                "nativeName" : "legal_name_first_name",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "legal_name_middle_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "legal_name_middle_name",
+                "nativeName" : "legal_name_middle_name",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "legal_name_last_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "legal_name_last_name",
+                "nativeName" : "legal_name_last_name",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "dob",
+                "fieldType" : "CONNECTOR",
+                "label" : "dob",
+                "nativeName" : "dob",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "age",
+                "fieldType" : "CONNECTOR",
+                "label" : "age",
+                "nativeName" : "age",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "gender",
+                "fieldType" : "CONNECTOR",
+                "label" : "gender",
+                "nativeName" : "gender",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "designation",
+                "fieldType" : "CONNECTOR",
+                "label" : "designation",
+                "nativeName" : "designation",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "hire_date",
+                "fieldType" : "CONNECTOR",
+                "label" : "hire_date",
+                "nativeName" : "hire_date",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "salary",
+                "fieldType" : "CONNECTOR",
+                "label" : "salary",
+                "nativeName" : "salary",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "emailid",
+                "fieldType" : "CONNECTOR",
+                "label" : "emailid",
+                "nativeName" : "emailid",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "termination_date1",
+                "fieldType" : "CONNECTOR",
+                "label" : "termination_date1",
+                "nativeName" : "termination_date1",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "termination_reason1",
+                "fieldType" : "CONNECTOR",
+                "label" : "termination_reason1",
+                "nativeName" : "termination_reason1",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              },
+              {
+                "name" : "load_dt",
+                "fieldType" : "CONNECTOR",
+                "label" : "load_dt",
+                "nativeName" : "load_dt",
+                "nativeType" : "date",
+                "original" : "false",
+                "precision" : 29,
+                "scale" : 9,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "wd_worker_data_src_prudent"
+                  }
+                ]
+              }
+            ],
+            "objectAttributes" : [
+              {
+                "name" : "connectorType",
+                "value" : "Simple"
+              },
+              {
+                "name" : "originalDataSetId",
+                "value" : "workday"
+              },
+              {
+                "name" : "recordType",
+                "value" : "TABLE"
+              },
+              {
+                "name" : "uniqueId",
+                "value" : "cf3db75d-dce4-44c6-bd4e-9f9e80e54e9a"
+              },
+              {
+                "name" : "isLegacySQLView",
+                "value" : "false"
+              }
+            ]
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        },
+        "manualMappings" : {
+          "mappingList" : [
+            {
+              "fromFieldName" : "Employee_id",
+              "toField" : {
+                "name" : "Employee_id"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "legal_name_first_name",
+              "toField" : {
+                "name" : "legal_name_first_name"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "legal_name_middle_name",
+              "toField" : {
+                "name" : "legal_name_middle_name"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "legal_name_last_name",
+              "toField" : {
+                "name" : "legal_name_last_name"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "dob",
+              "toField" : {
+                "name" : "dob"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "age",
+              "toField" : {
+                "name" : "age"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "gender",
+              "toField" : {
+                "name" : "gender"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "designation",
+              "toField" : {
+                "name" : "designation"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "hire_date",
+              "toField" : {
+                "name" : "hire_date"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "salary",
+              "toField" : {
+                "name" : "salary"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "emailid",
+              "toField" : {
+                "name" : "emailid"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "termination_date1",
+              "toField" : {
+                "name" : "termination_date1"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "termination_reason1",
+              "toField" : {
+                "name" : "termination_reason1"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "load_Dt",
+              "toField" : {
+                "name" : "load_dt"
+              },
+              "fromFieldNames" : null
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2026-08-11 15:54:46 IST"
+}

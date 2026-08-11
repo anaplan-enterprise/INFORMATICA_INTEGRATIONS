@@ -1,0 +1,142 @@
+{
+  "name" : "EAI_mct_InsertEmployeeDump",
+  "runtimeEnvironmentId" : "@hAJdnKJx3qffrXyb5xiBIY",
+  "runtimeEnvironmentName" : "IT_EAI_Agent",
+  "maxLogs" : 10,
+  "parameters" : [
+    {
+      "name" : "$Source$",
+      "type" : "EXTENDED_SOURCE",
+      "label" : "Source",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "isSelectDistinct" : "false",
+        "isMsrcFilterParameterized" : "false",
+        "isMsrcSortParameterized" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "originalPath" : "Source"
+      },
+      "sourceConnectionId" : "@1QZ0JuXB8arehMGjkeINOC",
+      "connectionName" : "EAI_GCP_GBQ_INFA_v2",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : false,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "object" : {
+          "name" : "outbound/vw_prudent_employee_dump",
+          "label" : "vw_prudent_employee_dump",
+          "metadataUpdated" : false
+        },
+        "singleMode" : true,
+        "objects" : [
+          {
+            "name" : "outbound/vw_prudent_employee_dump",
+            "label" : "vw_prudent_employee_dump",
+            "metadataUpdated" : false
+          }
+        ]
+      },
+      "oprRuntimeAttrs" : {
+        "allowLargeResults" : "NO",
+        "numOfRowsToRead" : "0",
+        "stagingDataFormat" : "JSON (Newline Delimited)",
+        "jobPollInterval" : "10",
+        "numOfParallelDownloads" : "1",
+        "readMode" : "Direct",
+        "sparkMaxParallelism" : "1",
+        "useLegacySQLForSQLOverride" : "YES",
+        "persistStageFile" : "NO",
+        "preSQLReader" : "delete from workday.wd_worker_data_src_prudent where load_dt=(\nselect     CASE \n      WHEN EXTRACT(DAY FROM CURRENT_DATE()) <= 15 \n        THEN DATE_ADD(LAST_DAY(DATE_SUB(CURRENT_DATE(), INTERVAL 1 MONTH)), INTERVAL 1 DAY)\n      ELSE \n        DATE_ADD(DATE_TRUNC(CURRENT_DATE(), MONTH), INTERVAL 15 DAY)\n    END \n)",
+        "persistDestinationTable" : "NO",
+        "useExportDataStatement" : "NO",
+        "compression" : "YES"
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    },
+    {
+      "name" : "$Target$",
+      "type" : "TARGET",
+      "label" : "Target",
+      "uiProperties" : {
+        "connectionParameterized" : "false",
+        "objectParameterized" : "false",
+        "visible" : "false",
+        "supportApplyDDLChanges" : "false",
+        "originalPath" : "Target"
+      },
+      "targetConnectionId" : "@1QZ0JuXB8arehMGjkeINOC",
+      "connectionName" : "EAI_GCP_GBQ_INFA_v2",
+      "targetObject" : "workday/wd_worker_data_src_prudent",
+      "targetObjectLabel" : "wd_worker_data_src_prudent",
+      "newFlatFile" : false,
+      "newObject" : false,
+      "showBusinessNames" : false,
+      "naturalOrder" : true,
+      "truncateTarget" : false,
+      "bulkApiDBTarget" : false,
+      "operationType" : "Insert",
+      "customFuncCfg" : { },
+      "extendedObject" : {
+        "singleMode" : true
+      },
+      "commandType" : 0,
+      "handleSpecialChars" : false,
+      "handleDecimalRoundOff" : false,
+      "frsAsset" : false,
+      "dynamicFileName" : false,
+      "excludeDynamicFileNameField" : false,
+      "currentlyProcessedFileName" : false,
+      "retainFieldMetadata" : false,
+      "objectName" : "workday/wd_worker_data_src_prudent",
+      "objectLabel" : "wd_worker_data_src_prudent",
+      "useExactSrcNames" : false,
+      "userUpdated" : true,
+      "runtimeParameterData" : {
+        "connectionRuntimeParameter" : false,
+        "objectRuntimeParameter" : false
+      },
+      "restmodernSource" : true,
+      "unspecified" : false,
+      "fileList" : false
+    }
+  ],
+  "verbose" : false,
+  "lastRunTime" : 1785582094000,
+  "mappingId" : "@4ZzYemR4bl3kY5Ve9u1pSM",
+  "mappingTemplateName" : "EAI_m_InsertDump",
+  "hidden" : false,
+  "enableCrossSchemaPushdown" : true,
+  "enableParallelRun" : false,
+  "autoTunedApplied" : false,
+  "autoTunedAppliedType" : "NONE",
+  "paramFileType" : "PARAM_FILE_LOCAL",
+  "schemaMode" : "async",
+  "valid" : true,
+  "parameterFileEncoding" : "UTF-8",
+  "optimizationPlan" : "NONE",
+  "allowMaxFieldLength" : false,
+  "specialCharacterSupport" : false,
+  "midstreamPreview" : false,
+  "vcsExportTime" : "2026-08-11 15:54:47 IST"
+}

@@ -1,0 +1,740 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>L55aaabdqpw0VPN-gt-12154564-2023-09-08T08:30:27.599Z::tf.xml</types1:EntryId>
+      <types1:Name>EAI_tf_Prudent_MonthlyFiles</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>sailesh.kumaryadav@anaplan.com</types1:CreatedBy>
+      <types1:CreationDate>2023-09-08T08:30:28Z</types1:CreationDate>
+      <types1:ModifiedBy>sailesh.kumaryadav@anaplan.com</types1:ModifiedBy>
+      <types1:ModificationDate>2026-07-01T11:54:36Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>sailesh.kumaryadav@anaplan.com</types1:PublishedBy>
+      <types1:PublicationDate>2026-07-01T11:54:40Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/tf.EAI_tf_Prudent_MonthlyFiles/EAI_tf_Prudent_MonthlyFiles.tf.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   GUID="3l8M7Twksurew3vWEcIW2b"
+                   displayName="EAI_tf_Prudent_MonthlyFiles"
+                   name="EAI_tf_Prudent_MonthlyFiles"
+                   overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description=""
+                      name="EAI_mct_DownloadActiveEmployeeDetails"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:EAI-mct-DownloadActiveEmployeeDetails-9PrA6Bppe2qchN2WFX33E6</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="EAI_mct_DownloadModifiedEmployeeDetails"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:EAI-mct-DownloadModifiedEmployeeDetails-5UyH0SV9TuDcL5Vnl4dEk0</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="EAI_mct_DownloadTerminatedEmployeeDetails"
+                      type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:EAI-mct-DownloadTerminatedEmployeeDetails-jefY0jgOuObl69vNwyvo2E</option>
+                  </options>
+               </field>
+               <field description="" name="Coppy_Template" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                  </options>
+               </field>
+               <field description="" name="Archive" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:INFA-commandTask</option>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                  </options>
+               </field>
+               <field description="" name="InsertDump" type="reference">
+                  <options>
+                     <option name="failOnNotRun">false</option>
+                     <option name="failOnFault">true</option>
+                     <option name="referenceTo">$po:EAI-mct-InsertEmployeeDump-atCfFkgynEpbsKjeRJpv4x</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest/>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">false</nvpair>
+            </extData>
+            <flow id="a">
+               <start id="b">
+                  <link id="lkwjezl3" targetId="lkwjezlz"/>
+               </start>
+               <eventContainer id="lkwjezlz">
+                  <service id="lkwjezl2">
+                     <title>Coppy_Template</title>
+                     <serviceName>ICSExecuteCommandTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Task Name" source="constant">Coppy_Template</parameter>
+                        <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                        <parameter name="Runtime Environment" source="constant">001P5E2500000000000D:IT_EAI_Agent</parameter>
+                        <parameter name="Max Wait" source="constant">86400</parameter>
+                        <parameter name="Script Name" source="constant"/>
+                        <parameter name="Input Arguments" source="constant"/>
+                        <parameter name="Work Directory" source="constant"/>
+                        <parameter name="RuntimeEnvGUID" source="constant">hAJdnKJx3qffrXyb5xiBIY</parameter>
+                        <parameter name="FailTaskIfAnyScriptFails" source="constant">true</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="INFA-commandTask">temp.Command Task 1</operation>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">Script1</operation>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">D:\IT_EAI\Projects\WD_Prudent\scripts\copy_template.bat</operation>
+                           <operation source="constant"
+                                      to="INFA-commandTask/input[1]/script-1/inputArguments"/>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.Coppy_Template/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.Coppy_Template/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.Coppy_Template/output/End_Time">End Time</operation>
+                        <operation source="field" to="temp.Coppy_Template/output/Exit_Code">Exit Code</operation>
+                        <operation source="field" to="temp.Coppy_Template/output/Execution_Status">Execution Status</operation>
+                        <operation source="field" to="temp.Coppy_Template/output/Std_Error">Std Error</operation>
+                     </serviceOutput>
+                  </service>
+                  <flow id="lkwjezmt">
+                     <link id="lkwjezmu" targetId="lkwjezlz" type="containerLink"/>
+                  </flow>
+                  <flow id="lkwjezmw">
+                     <service id="lkwjezq6">
+                        <title>Notification Task 1</title>
+                        <serviceName>emailNotificationService</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="Email To" source="constant">integrations.it@anaplan.com</parameter>
+                           <parameter name="Email Cc" source="constant"/>
+                           <parameter name="Email Bcc" source="constant"/>
+                           <parameter name="Email Subject" source="constant">Prudent : Failed while moving Header Files to TgtFiles</parameter>
+                           <parameter name="Email Content Type" source="constant">text</parameter>
+                           <parameter name="Email Body" source="constant"/>
+                        </serviceInput>
+                        <serviceOutput/>
+                        <link id="lkwjezqm" targetId="lkwjezql"/>
+                     </service>
+                     <end id="lkwjezql">
+                        <title>End 3</title>
+                     </end>
+                  </flow>
+                  <link id="lkwjezms" targetId="lkwjezmt" type="containerLink"/>
+                  <link id="lkwjezl4" targetId="lkv5sjt4"/>
+                  <events>
+                     <catch faultField="temp.Coppy_Template/fault"
+                            id="lkwjezly"
+                            interrupting="true"
+                            name="error">
+                        <link id="lkwjezmv" targetId="lkwjezmw" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <eventContainer id="lkv5sjt4">
+                  <service id="lkv5sjs3">
+                     <title>EAI_mct_DownloadActiveEmployeeDetails</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">EAI_mct_DownloadActiveEmployeeDetails</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">9PrA6Bppe2qchN2WFX33E6</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field"
+                                      to="EAI-mct-DownloadActiveEmployeeDetails-9PrA6Bppe2qchN2WFX33E6">temp.EAI_mct_DownloadActiveEmployeeDetails</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/Object_Name">Object Name</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/Run_Id">Run Id</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/Log_Id">Log Id</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/Task_Id">Task Id</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/Start_Time">Start Time</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadActiveEmployeeDetails/output/FirstErrorCode">First Error Code</operation>
+                     </serviceOutput>
+                  </service>
+                  <flow id="lkwjeznk">
+                     <link id="lkwjeznl" targetId="lkv5sjt4" type="containerLink"/>
+                  </flow>
+                  <flow id="lkwjeznn">
+                     <service id="lkwjezs9">
+                        <title>Notification Task 2</title>
+                        <serviceName>emailNotificationService</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="Email To" source="constant">integrations.it@anaplan.com</parameter>
+                           <parameter name="Email Cc" source="constant"/>
+                           <parameter name="Email Bcc" source="constant"/>
+                           <parameter name="Email Subject" source="constant">Prudent : Failed at Job DownloadActiveEmployees</parameter>
+                           <parameter name="Email Content Type" source="constant">text</parameter>
+                           <parameter name="Email Body" source="constant"/>
+                        </serviceInput>
+                        <serviceOutput/>
+                        <link id="lkwjezsa" targetId="lkwjezpn"/>
+                     </service>
+                     <end id="lkwjezpn">
+                        <title>End 1</title>
+                     </end>
+                  </flow>
+                  <link id="lkwjeznj" targetId="lkwjeznk" type="containerLink"/>
+                  <link id="lkv5sjsa" targetId="lkv5sjus"/>
+                  <events>
+                     <catch faultField="temp.EAI_mct_DownloadActiveEmployeeDetails/fault"
+                            id="lkv5sjt2"
+                            interrupting="true"
+                            name="error">
+                        <link id="lkwjeznm" targetId="lkwjeznn" type="containerLink"/>
+                     </catch>
+                     <catch faultField="temp.EAI_mct_DownloadActiveEmployeeDetails/fault"
+                            id="lkv5sjt3"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <eventContainer id="lkv5sjus">
+                  <service id="lkv5sjs9">
+                     <title>EAI_mct_DownloadModifiedEmployeeDetails</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">EAI_mct_DownloadModifiedEmployeeDetails</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">5UyH0SV9TuDcL5Vnl4dEk0</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field"
+                                      to="EAI-mct-DownloadModifiedEmployeeDetails-5UyH0SV9TuDcL5Vnl4dEk0">temp.EAI_mct_DownloadModifiedEmployeeDetails</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/Object_Name">Object Name</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/Run_Id">Run Id</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/Log_Id">Log Id</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/Task_Id">Task Id</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/Start_Time">Start Time</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadModifiedEmployeeDetails/output/FirstErrorCode">First Error Code</operation>
+                     </serviceOutput>
+                  </service>
+                  <flow id="lkwjezod">
+                     <link id="lkwjezoe" targetId="lkv5sjus" type="containerLink"/>
+                  </flow>
+                  <flow id="lkwjezog">
+                     <service id="lkwjezt3">
+                        <title>Notification Task 3</title>
+                        <serviceName>emailNotificationService</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="Email To" source="constant">integrations.it@anaplan.com</parameter>
+                           <parameter name="Email Cc" source="constant"/>
+                           <parameter name="Email Bcc" source="constant"/>
+                           <parameter name="Email Subject" source="constant">Prudent : Failed at Job DownloadModifiedEmployeeDetails</parameter>
+                           <parameter name="Email Content Type" source="constant">text</parameter>
+                           <parameter name="Email Body" source="constant"/>
+                        </serviceInput>
+                        <serviceOutput/>
+                        <link id="lkwjezt4" targetId="lkwjezpx"/>
+                     </service>
+                     <end id="lkwjezpx">
+                        <title>End 2</title>
+                     </end>
+                  </flow>
+                  <link id="lkwjezoc" targetId="lkwjezod" type="containerLink"/>
+                  <link id="lkv5sjsg" targetId="lkv5sjwg"/>
+                  <events>
+                     <catch faultField="temp.EAI_mct_DownloadModifiedEmployeeDetails/fault"
+                            id="lkv5sjuq"
+                            interrupting="true"
+                            name="error">
+                        <link id="lkwjezof" targetId="lkwjezog" type="containerLink"/>
+                     </catch>
+                     <catch faultField="temp.EAI_mct_DownloadModifiedEmployeeDetails/fault"
+                            id="lkv5sjur"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <eventContainer id="lkv5sjwg">
+                  <service id="lkv5sjsf">
+                     <title>EAI_mct_DownloadTerminatedEmployeeDetails</title>
+                     <serviceName>ICSExecuteDataTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                        <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                        <parameter name="Task Name" source="constant" updatable="true">EAI_mct_DownloadTerminatedEmployeeDetails</parameter>
+                        <parameter name="GUID" source="constant" updatable="true">jefY0jgOuObl69vNwyvo2E</parameter>
+                        <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                        <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field"
+                                      to="EAI-mct-DownloadTerminatedEmployeeDetails-jefY0jgOuObl69vNwyvo2E">temp.EAI_mct_DownloadTerminatedEmployeeDetails</operation>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/Object_Name">Object Name</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/Run_Id">Run Id</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/Log_Id">Log Id</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/Task_Id">Task Id</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/Task_Status">Task Status</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/Success_Source_Rows">Success Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/Failed_Source_Rows">Failed Source Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/Success_Target_Rows">Success Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/Failed_Target_Rows">Failed Target Rows</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/Start_Time">Start Time</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/End_Time">End Time</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/Error_Message">Error Message</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/TotalTransErrors">Total Transformation Errors</operation>
+                        <operation source="field"
+                                   to="temp.EAI_mct_DownloadTerminatedEmployeeDetails/output/FirstErrorCode">First Error Code</operation>
+                     </serviceOutput>
+                  </service>
+                  <flow id="lkwjezp8">
+                     <eventContainer id="lkwsun1o">
+                        <service id="lkwsun1c">
+                           <title>InsertDump</title>
+                           <serviceName>ICSExecuteDataTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                              <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                              <parameter name="Task Name" source="constant" updatable="true">EAI_mct_InsertEmployeeDump</parameter>
+                              <parameter name="GUID" source="constant" updatable="true">atCfFkgynEpbsKjeRJpv4x</parameter>
+                              <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                              <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="EAI-mct-InsertEmployeeDump-atCfFkgynEpbsKjeRJpv4x">temp.InsertDump</operation>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.InsertDump/output/Object_Name">Object Name</operation>
+                              <operation source="field" to="temp.InsertDump/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.InsertDump/output/Log_Id">Log Id</operation>
+                              <operation source="field" to="temp.InsertDump/output/Task_Id">Task Id</operation>
+                              <operation source="field" to="temp.InsertDump/output/Task_Status">Task Status</operation>
+                              <operation source="field" to="temp.InsertDump/output/Success_Source_Rows">Success Source Rows</operation>
+                              <operation source="field" to="temp.InsertDump/output/Failed_Source_Rows">Failed Source Rows</operation>
+                              <operation source="field" to="temp.InsertDump/output/Success_Target_Rows">Success Target Rows</operation>
+                              <operation source="field" to="temp.InsertDump/output/Failed_Target_Rows">Failed Target Rows</operation>
+                              <operation source="field" to="temp.InsertDump/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.InsertDump/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.InsertDump/output/Error_Message">Error Message</operation>
+                              <operation source="field" to="temp.InsertDump/output/TotalTransErrors">Total Transformation Errors</operation>
+                              <operation source="field" to="temp.InsertDump/output/FirstErrorCode">First Error Code</operation>
+                           </serviceOutput>
+                        </service>
+                        <flow id="lkwsun3k">
+                           <link id="lkwsun3l" targetId="lkwsun1o" type="containerLink"/>
+                        </flow>
+                        <flow id="lkwsun3n">
+                           <service id="lkwsun3x">
+                              <title>Notification Task 5</title>
+                              <serviceName>emailNotificationService</serviceName>
+                              <serviceGUID/>
+                              <serviceInput>
+                                 <parameter name="Email To" source="constant">integrations.it@anaplan.com</parameter>
+                                 <parameter name="Email Cc" source="constant"/>
+                                 <parameter name="Email Bcc" source="constant"/>
+                                 <parameter name="Email Subject" source="constant">Prudent : Job Failed while taking dump</parameter>
+                                 <parameter name="Email Content Type" source="constant">text</parameter>
+                                 <parameter name="Email Body" source="constant"/>
+                              </serviceInput>
+                              <serviceOutput/>
+                              <link id="lkwsun4d" targetId="lkwsun4c"/>
+                           </service>
+                           <end id="lkwsun4c">
+                              <title>End 5</title>
+                           </end>
+                        </flow>
+                        <link id="lkwsun3j" targetId="lkwsun3k" type="containerLink"/>
+                        <events>
+                           <catch faultField="temp.InsertDump/fault"
+                                  id="lkwsun1m"
+                                  interrupting="true"
+                                  name="error">
+                              <link id="lkwsun3m" targetId="lkwsun3n" type="containerLink"/>
+                           </catch>
+                           <catch faultField="temp.InsertDump/fault"
+                                  id="lkwsun1n"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <link id="lkwjezp9" targetId="lkv5sjwg" type="containerLink"/>
+                  </flow>
+                  <flow id="lkwjezpb">
+                     <service id="lkwjezum">
+                        <title>Notification Task 4</title>
+                        <serviceName>emailNotificationService</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="Email To" source="constant">integrations.it@anaplan.com</parameter>
+                           <parameter name="Email Cc" source="constant"/>
+                           <parameter name="Email Bcc" source="constant"/>
+                           <parameter name="Email Subject" source="constant">Prudent : Job failed while downloading Terminated Employees</parameter>
+                           <parameter name="Email Content Type" source="constant">text</parameter>
+                           <parameter name="Email Body" source="constant"/>
+                        </serviceInput>
+                        <serviceOutput/>
+                        <link id="lkwjezwo" targetId="lkwjezwn"/>
+                     </service>
+                     <end id="lkwjezwn">
+                        <title>End 4</title>
+                     </end>
+                  </flow>
+                  <link id="lkwjezp7" targetId="lkwjezp8" type="containerLink"/>
+                  <link id="lkwjezvl" targetId="lkwjezxy"/>
+                  <events>
+                     <catch faultField="temp.EAI_mct_DownloadTerminatedEmployeeDetails/fault"
+                            id="lkv5sjwe"
+                            interrupting="true"
+                            name="error">
+                        <link id="lkwjezpa" targetId="lkwjezpb" type="containerLink"/>
+                     </catch>
+                     <catch faultField="temp.EAI_mct_DownloadTerminatedEmployeeDetails/fault"
+                            id="lkv5sjwf"
+                            interrupting="true"
+                            name="warning"/>
+                  </events>
+               </eventContainer>
+               <eventContainer id="lkwjezxy">
+                  <service id="lkwjezvk">
+                     <title>Archive</title>
+                     <serviceName>ICSExecuteCommandTask</serviceName>
+                     <serviceGUID/>
+                     <serviceInput>
+                        <parameter name="Task Name" source="constant">Archive</parameter>
+                        <parameter name="Wait for Task to Complete" source="constant">true</parameter>
+                        <parameter name="Runtime Environment" source="constant">001P5E2500000000000D:IT_EAI_Agent</parameter>
+                        <parameter name="Max Wait" source="constant">86400</parameter>
+                        <parameter name="Script Name" source="constant"/>
+                        <parameter name="Input Arguments" source="constant"/>
+                        <parameter name="Work Directory" source="constant"/>
+                        <parameter name="RuntimeEnvGUID" source="constant">hAJdnKJx3qffrXyb5xiBIY</parameter>
+                        <parameter name="FailTaskIfAnyScriptFails" source="constant">true</parameter>
+                        <parameter name="taskField" source="nested">
+                           <operation source="field" to="INFA-commandTask">temp.Command Task 2</operation>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/name">Script1</operation>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/scriptName">D:\IT_EAI\Projects\WD_Prudent\scripts\archive.bat</operation>
+                           <operation source="constant"
+                                      to="INFA-commandTask/input[1]/script-1/inputArguments"/>
+                           <operation source="constant" to="INFA-commandTask/input[1]/script-1/workDir"/>
+                        </parameter>
+                     </serviceInput>
+                     <serviceOutput>
+                        <operation source="field" to="temp.Archive/output/Run_Id">Run Id</operation>
+                        <operation source="field" to="temp.Archive/output/Start_Time">Start Time</operation>
+                        <operation source="field" to="temp.Archive/output/End_Time">End Time</operation>
+                        <operation source="field" to="temp.Archive/output/Exit_Code">Exit Code</operation>
+                        <operation source="field" to="temp.Archive/output/Execution_Status">Execution Status</operation>
+                        <operation source="field" to="temp.Archive/output/Std_Error">Std Error</operation>
+                     </serviceOutput>
+                  </service>
+                  <flow id="llui3zbt">
+                     <eventContainer id="mo1gousi">
+                        <service id="mo1gourj">
+                           <title>Notification Task 7</title>
+                           <serviceName>emailNotificationService</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Email To" source="constant">mandy.mcvorran@anaplan.com,priya.kantharaj@anaplan.com,integrations.it@anaplan.com,Santosh.Kanade@marsh.com,CS.Mum@marsh.com</parameter>
+                              <parameter name="Email Cc" source="constant">Ashish.Alve@marsh.com,Prateek.Jain@marsh.com</parameter>
+                              <parameter name="Email Bcc" source="constant"/>
+                              <parameter name="Email Subject" source="constant">Anaplan Employee Movement Report</parameter>
+                              <parameter name="Email Content Type" source="constant">text</parameter>
+                              <parameter name="Email Body" source="constant"/>
+                           </serviceInput>
+                           <serviceOutput/>
+                        </service>
+                        <events>
+                           <catch faultField="temp.dummyTF5895/fault"
+                                  id="mo1gourg"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <link id="llui3zbu" targetId="lkwjezxy" type="containerLink"/>
+                  </flow>
+                  <flow id="llui3zbw">
+                     <service id="llui3zc7">
+                        <title>Notification Task 6</title>
+                        <serviceName>emailNotificationService</serviceName>
+                        <serviceGUID/>
+                        <serviceInput>
+                           <parameter name="Email To" source="constant">integrations.it@anaplan.com</parameter>
+                           <parameter name="Email Cc" source="constant"/>
+                           <parameter name="Email Bcc" source="constant"/>
+                           <parameter name="Email Subject" source="constant">Prudent : Archival failed</parameter>
+                           <parameter name="Email Content Type" source="constant">text</parameter>
+                           <parameter name="Email Body" source="constant"/>
+                        </serviceInput>
+                        <serviceOutput/>
+                        <link id="loyf07jo" targetId="loyf07jn"/>
+                     </service>
+                     <end id="loyf07jn">
+                        <title>End 6</title>
+                     </end>
+                  </flow>
+                  <link id="llui3zbs" targetId="llui3zbt" type="containerLink"/>
+                  <link id="lkwsun17" targetId="c"/>
+                  <events>
+                     <catch faultField="temp.Archive/fault"
+                            id="lkwjezxx"
+                            interrupting="true"
+                            name="error">
+                        <link id="llui3zbv" targetId="llui3zbw" type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="EAI-mct-DownloadActiveEmployeeDetails-9PrA6Bppe2qchN2WFX33E6"
+                              isByCopy="true"
+                              name="EAI-mct-DownloadActiveEmployeeDetails-9PrA6Bppe2qchN2WFX33E6">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters"
+                            name="input"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="EAI-mct-DownloadModifiedEmployeeDetails-5UyH0SV9TuDcL5Vnl4dEk0"
+                              isByCopy="true"
+                              name="EAI-mct-DownloadModifiedEmployeeDetails-5UyH0SV9TuDcL5Vnl4dEk0">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters"
+                            name="input"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="EAI-mct-DownloadTerminatedEmployeeDetails-jefY0jgOuObl69vNwyvo2E"
+                              isByCopy="true"
+                              name="EAI-mct-DownloadTerminatedEmployeeDetails-jefY0jgOuObl69vNwyvo2E">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters"
+                            name="input"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="INFA-commandTask"
+                              isByCopy="true"
+                              name="INFA-commandTask">
+                  <description>This process object represents a taskflow specific command task output field details.</description>
+                  <tags/>
+                  <detail>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="EAI-mct-InsertEmployeeDump-atCfFkgynEpbsKjeRJpv4x"
+                              isByCopy="true"
+                              name="EAI-mct-InsertEmployeeDump-atCfFkgynEpbsKjeRJpv4x">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Output Parameters"
+                            name="output"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Fault"
+                            name="fault"
+                            nullable="true"
+                            required="false"
+                            type="reference"/>
+                     <field label="Max Wait (Seconds)"
+                            name="Max_Wait"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>3l8M7Twksurew3vWEcIW2b</types1:GUID>
+      <types1:DisplayName>EAI_tf_Prudent_MonthlyFiles</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2026-08-11T10:24:48.081Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,1298 @@
+{
+  "content" : {
+    "allowMaxFieldLength" : "false",
+    "bigIntConvertType" : "ONLY_BIGINT",
+    "documentType" : "MAPPING",
+    "name" : "EAI_m_DownloadTerminatedEmployeeDetails",
+    "specialCharacterSupport" : "false",
+    "links" : [
+      {
+        "link" : "Source -> Expression"
+      },
+      {
+        "link" : "ExpDoubleQuotes -> Target"
+      },
+      {
+        "link" : "Sequence -> ExpDoubleQuotes"
+      },
+      {
+        "link" : "Expression -> Sequence"
+      }
+    ],
+    "parameters" : [
+      {
+        "input" : "true",
+        "output" : "false",
+        "precision" : 0,
+        "scale" : 0,
+        "allowRuntimeOverride" : "false",
+        "expressionVariable" : "false",
+        "name" : "EncryptKey"
+      }
+    ],
+    "transformations" : [
+      {
+        "augmented" : "false",
+        "createTime" : "2023-05-04T18:14:32.941Z",
+        "name" : "Source",
+        "advancedProperties" : [
+          {
+            "name" : "Tracing Level",
+            "value" : "Normal"
+          },
+          {
+            "name" : "Output is deterministic",
+            "value" : "false"
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "false",
+            "name" : "DefaultGroup",
+            "output" : "true"
+          }
+        ],
+        "generateFilenamePort" : "false",
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "employee_id"
+            },
+            "name" : "employee_id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "legal_name_first_name"
+            },
+            "name" : "legal_name_first_name",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "legal_name_last_name"
+            },
+            "name" : "legal_name_last_name",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "legal_name_middle_name"
+            },
+            "name" : "legal_name_middle_name",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "dateofbirth"
+            },
+            "name" : "dateofbirth",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "relation"
+            },
+            "name" : "relation",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "gender"
+            },
+            "name" : "gender",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "job_title"
+            },
+            "name" : "job_title",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "hire_date"
+            },
+            "name" : "hire_date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "salary"
+            },
+            "name" : "salary",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "primaryworkemail"
+            },
+            "name" : "primaryworkemail",
+            "platformType" : {
+              "name" : "binary"
+            },
+            "precision" : 65535,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "termination_date"
+            },
+            "name" : "termination_date",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "termination_reason1"
+            },
+            "name" : "termination_reason1",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@1QZ0JuXB8arehMGjkeINOC",
+          "connectionName" : "EAI_GCP_GBQ_INFA_v2",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "TOOLKIT",
+          "useDynamicFileName" : "false",
+          "object" : {
+            "name" : "outbound/vw_prudent_employee_termination",
+            "label" : "vw_prudent_employee_termination",
+            "objectName" : "vw_prudent_employee_termination",
+            "path" : "outbound/vw_prudent_employee_termination",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "employee_id",
+                "fieldType" : "CONNECTOR",
+                "label" : "employee_id",
+                "nativeName" : "employee_id",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "legal_name_first_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "legal_name_first_name",
+                "nativeName" : "legal_name_first_name",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "legal_name_last_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "legal_name_last_name",
+                "nativeName" : "legal_name_last_name",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "legal_name_middle_name",
+                "fieldType" : "CONNECTOR",
+                "label" : "legal_name_middle_name",
+                "nativeName" : "legal_name_middle_name",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "dateofbirth",
+                "fieldType" : "CONNECTOR",
+                "label" : "dateofbirth",
+                "nativeName" : "dateofbirth",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "relation",
+                "fieldType" : "CONNECTOR",
+                "label" : "relation",
+                "nativeName" : "relation",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "gender",
+                "fieldType" : "CONNECTOR",
+                "label" : "gender",
+                "nativeName" : "gender",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "job_title",
+                "fieldType" : "CONNECTOR",
+                "label" : "job_title",
+                "nativeName" : "job_title",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "hire_date",
+                "fieldType" : "CONNECTOR",
+                "label" : "hire_date",
+                "nativeName" : "hire_date",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "salary",
+                "fieldType" : "CONNECTOR",
+                "label" : "salary",
+                "nativeName" : "salary",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "primaryworkemail",
+                "fieldType" : "CONNECTOR",
+                "label" : "primaryworkemail",
+                "nativeName" : "primaryworkemail",
+                "nativeType" : "bytes",
+                "original" : "false",
+                "precision" : 65535,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "termination_date",
+                "fieldType" : "CONNECTOR",
+                "label" : "termination_date",
+                "nativeName" : "termination_date",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              },
+              {
+                "name" : "termination_reason1",
+                "fieldType" : "CONNECTOR",
+                "label" : "termination_reason1",
+                "nativeName" : "termination_reason1",
+                "nativeType" : "string",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "metaExtensions" : [
+                  {
+                    "name" : "parametrisedLength",
+                    "value" : "0"
+                  },
+                  {
+                    "name" : "isRepeatable",
+                    "value" : "false"
+                  },
+                  {
+                    "name" : "isRecord",
+                    "value" : "false"
+                  }
+                ],
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "vw_prudent_employee_termination"
+                  }
+                ]
+              }
+            ],
+            "objectAttributes" : [
+              {
+                "name" : "connectorType",
+                "value" : "Simple"
+              },
+              {
+                "name" : "originalDataSetId",
+                "value" : "outbound"
+              },
+              {
+                "name" : "recordType",
+                "value" : "VIEW"
+              },
+              {
+                "name" : "uniqueId",
+                "value" : "5a9accdc-d394-40c4-83a8-bdde4afe2557"
+              },
+              {
+                "name" : "isLegacySQLView",
+                "value" : "false"
+              }
+            ]
+          },
+          "readOptions" : {
+            "commandType" : 0,
+            "descending" : "false",
+            "queryAll" : "false",
+            "rowLimit" : 0,
+            "selectDistinct" : "false"
+          }
+        }
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2023-05-04T18:14:32.941Z",
+        "name" : "Target",
+        "advancedProperties" : [
+          {
+            "name" : "Forward Rejected Rows",
+            "value" : "true"
+          },
+          {
+            "name" : "Thousand Separator",
+            "value" : "None"
+          },
+          {
+            "name" : "Decimal Separator",
+            "value" : "."
+          }
+        ],
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "false",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "sessionProperties" : [
+          {
+            "name" : "Append if Exists",
+            "value" : "YES"
+          },
+          {
+            "name" : "Create Target Directory",
+            "value" : "NO"
+          },
+          {
+            "name" : "Header Options",
+            "value" : "No Header"
+          },
+          {
+            "name" : "Output Type",
+            "value" : "File"
+          }
+        ],
+        "createTarget" : "false",
+        "fieldMappingMode" : "MANUAL",
+        "inputSorted" : "false",
+        "schemaProviderType" : "SELECTED_OBJECT",
+        "targetFieldsOrdered" : "false",
+        "updateColumns" : null,
+        "useLabels" : "false",
+        "useSequenceFields" : "false",
+        "fields" : [
+          {
+            "adapterField" : {
+              "name" : "Sr__No"
+            },
+            "name" : "Sr__No",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Employee_Code"
+            },
+            "name" : "Employee_Code",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Name_of_Employee"
+            },
+            "name" : "Name_of_Employee",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Date_of_Birth"
+            },
+            "name" : "Date_of_Birth",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Age"
+            },
+            "name" : "Age",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Relation"
+            },
+            "name" : "Relation",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Gender"
+            },
+            "name" : "Gender",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Date_of_Leaving"
+            },
+            "name" : "Date_of_Leaving",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          },
+          {
+            "adapterField" : {
+              "name" : "Reason_for_Deletion"
+            },
+            "name" : "Reason_for_Deletion",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0
+          }
+        ],
+        "dataAdapter" : {
+          "connectionId" : "saas:@9zmPSXJCHnqgiCpoANPZOA",
+          "connectionName" : "EAI_File_Connector_WD_Prudent",
+          "excludeDynamicFileNameField" : "false",
+          "objectType" : "SINGLE",
+          "typeSystem" : "CSVFile",
+          "useDynamicFileName" : "false",
+          "bulkOptions" : {
+            "hardDelete" : "false",
+            "maxRowsPerRequest" : 0,
+            "monitorBulk" : "false",
+            "monitorBulkV2" : "false",
+            "pkChunkingEnabled" : "false",
+            "pkChunkingSize" : 0,
+            "serialMode" : "false",
+            "useBulkApi" : "false",
+            "useBulkApiV2" : "false"
+          },
+          "object" : {
+            "name" : "Anaplan_TerminatedEmployees.csv",
+            "label" : "Anaplan_TerminatedEmployees.csv",
+            "objectName" : "Anaplan_TerminatedEmployees.csv",
+            "path" : "Anaplan_TerminatedEmployees.csv",
+            "retainMetadata" : "false",
+            "fields" : [
+              {
+                "name" : "Sr__No",
+                "fieldType" : "CONNECTOR",
+                "label" : "Sr. No",
+                "nativeName" : "Sr. No",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Anaplan_TerminatedEmployees.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Employee_Code",
+                "fieldType" : "CONNECTOR",
+                "label" : "Employee Code",
+                "nativeName" : "Employee Code",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Anaplan_TerminatedEmployees.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Name_of_Employee",
+                "fieldType" : "CONNECTOR",
+                "label" : "Name of Employee",
+                "nativeName" : "Name of Employee",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Anaplan_TerminatedEmployees.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Date_of_Birth",
+                "fieldType" : "CONNECTOR",
+                "label" : "Date of Birth",
+                "nativeName" : "Date of Birth",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Anaplan_TerminatedEmployees.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Age",
+                "fieldType" : "CONNECTOR",
+                "label" : "Age",
+                "nativeName" : "Age",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Anaplan_TerminatedEmployees.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Relation",
+                "fieldType" : "CONNECTOR",
+                "label" : "Relation",
+                "nativeName" : "Relation",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Anaplan_TerminatedEmployees.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Gender",
+                "fieldType" : "CONNECTOR",
+                "label" : "Gender",
+                "nativeName" : "Gender",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Anaplan_TerminatedEmployees.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Date_of_Leaving",
+                "fieldType" : "CONNECTOR",
+                "label" : "Date of Leaving",
+                "nativeName" : "Date of Leaving",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Anaplan_TerminatedEmployees.csv"
+                  }
+                ]
+              },
+              {
+                "name" : "Reason_for_Deletion",
+                "fieldType" : "CONNECTOR",
+                "label" : "Reason for Deletion",
+                "nativeName" : "Reason for Deletion",
+                "nativeType" : "nstring",
+                "original" : "false",
+                "precision" : 255,
+                "scale" : 0,
+                "properties" : [
+                  {
+                    "name" : "parentObject",
+                    "value" : "Anaplan_TerminatedEmployees.csv"
+                  }
+                ]
+              }
+            ],
+            "fileAttrs" : {
+              "consecutiveDelimiter" : "false",
+              "delimiter" : ",",
+              "firstDataRow" : 2,
+              "firstDataRowAsHeader" : "false",
+              "headerAndDataDelimiter" : 0,
+              "headerLineNo" : 1,
+              "multiDelimitersAsAnd" : "true",
+              "rowDelimiter" : 0,
+              "textQualifier" : "\""
+            }
+          },
+          "writeOptions" : {
+            "batchSize" : 0,
+            "bulkApi" : "false",
+            "handleDecimalRoundOff" : "false",
+            "handleSpecialChars" : "false",
+            "operations" : [
+              "Insert"
+            ],
+            "setFieldsToNull" : "false",
+            "truncate" : "false",
+            "useErrorFile" : "false",
+            "useExactSrcNames" : "false",
+            "useSuccessFile" : "false"
+          }
+        },
+        "manualMappings" : {
+          "mappingList" : [
+            {
+              "fromFieldName" : "NEXTVAL",
+              "toField" : {
+                "name" : "Sr__No"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "vvEmployee_id",
+              "toField" : {
+                "name" : "Employee_Code"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "vvDOB",
+              "toField" : {
+                "name" : "Date_of_Birth"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "relation",
+              "toField" : {
+                "name" : "Relation"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "gender",
+              "toField" : {
+                "name" : "Gender"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "termination_date",
+              "toField" : {
+                "name" : "Date_of_Leaving"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "termination_reason1",
+              "toField" : {
+                "name" : "Reason_for_Deletion"
+              },
+              "fromFieldNames" : null
+            },
+            {
+              "fromFieldName" : "vvLegalFirstname",
+              "toField" : {
+                "name" : "Name_of_Employee"
+              },
+              "fromFieldNames" : null
+            }
+          ]
+        }
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2023-05-04T18:28:33.548Z",
+        "name" : "Expression",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vLegalFirstName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "AES_Decrypt(legal_name_first_name,$EncryptKey$)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vLegalLastname",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "AES_Decrypt(legal_name_last_name,$EncryptKey$)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vPrimary_Work_Email",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "AES_Decrypt(primaryworkemail,$EncryptKey$)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vMiddleName",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "AES_Decrypt(legal_name_middle_name,$EncryptKey$)"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vDOB",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "AES_Decrypt(dateofbirth,$EncryptKey$)"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2023-05-23T12:23:31.686Z",
+        "name" : "ExpDoubleQuotes",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "windowConfigurationEnabled" : "false",
+        "fields" : [
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vvEmployee_id",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "employee_id"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vvLegalFirstname",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "vLegalFirstName || ' ' || vMiddleName || ' ' || vLegalLastname"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vvJob_Title",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "job_title"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vvPrimaryEmail",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 255,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "vPrimary_Work_Email"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vvDOB",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif(isnull(vDOB),'',iif(vDOB='','','\"' || to_char(to_date(vDOB,'yyyy-mm-dd'),'dd-mon-yyyy') || '\"'))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vvPrimaryWorkEmail",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "vPrimary_Work_Email"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vvtitle",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "job_title"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vvHireDate",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "iif(isnull(hire_date),'',iif(hire_date='','', to_char(to_date(hire_date,'yyyy-mm-dd'),'dd-mon-yyyy') ))"
+          },
+          {
+            "defaultValue" : "ERROR('transformation error')",
+            "name" : "vSum_Insured___GMC",
+            "platformType" : {
+              "name" : "string"
+            },
+            "precision" : 100,
+            "scale" : 0,
+            "expFieldType" : "OUTPUT",
+            "expression" : "'1000000'"
+          }
+        ],
+        "windowSpec" : {
+          "allRowsFollowing" : "false",
+          "allRowsPreceding" : "false",
+          "endOffset" : 0,
+          "startOffset" : 0,
+          "partitionKeys" : null
+        }
+      },
+      {
+        "augmented" : "false",
+        "createTime" : "2023-08-03T09:24:30.245Z",
+        "name" : "Sequence",
+        "groups" : [
+          {
+            "input" : "true",
+            "name" : "DefaultGroup",
+            "output" : "true",
+            "rules" : [
+              {
+                "bulkRename" : "false",
+                "include" : "true"
+              }
+            ]
+          }
+        ],
+        "midstream" : "true",
+        "state" : {
+          "currentValue" : "1",
+          "cycle" : "false",
+          "endValue" : "9223372036854775807",
+          "incrementBy" : "1",
+          "numberOfCachedValues" : "0",
+          "reset" : "true",
+          "startValue" : "0",
+          "useSharedSequence" : "false"
+        }
+      }
+    ]
+  },
+  "vcsExportTime" : "2026-08-11 15:54:46 IST"
+}
